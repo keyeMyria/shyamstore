@@ -68,8 +68,8 @@ class TempAppProductCategories(models.Model):
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        unique_together = ('app_master', 'category_name',)
+    # class Meta:
+    #     unique_together = ('app_master', 'category_name',)
 
     def __str__(self):
         return str(self.id)

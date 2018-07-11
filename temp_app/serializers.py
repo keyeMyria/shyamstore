@@ -11,10 +11,7 @@ class TempAppCategoryMapingSerializer(ModelSerializer):
         model = TempAppCategoryMapings
         fields =['id','appmaster','app_category']
 
-# class TempAppMapingSerializer(ModelSerializer):
-#     class Meta:
-#         model = TempAppCategoryMapings
-#         fields =['id','app_category']
+
 
 
 
@@ -44,7 +41,7 @@ class TempAppMastersDetailsSerializer(ModelSerializer):
         fields =['id','session_id', 'app_category']
 
 class TempUsersAndStepTwoSerializer(ModelSerializer):
-    owner_pic = serializers.ImageField(max_length=None, use_url='users_pic')
+    # owner_pic = serializers.ImageField(max_length=None, use_url='users_pic')
     class Meta:
         model = TempUsers
         fields =['id','owner_name','session_id','owner_designation','owner_pic']
@@ -63,55 +60,17 @@ class TempAppImagesSerializer(ModelSerializer):
         fields =['id','app','app_images']
 
 class TempAppMastersSerializer(ModelSerializer):
-    # app_category = TempAppCategoryMapingSerializer(many=True)
-    # app_category = AppCategoriesSerializer(many=True,read_only=True)
-
-
     class Meta:
         model = TempAppMasters
         fields =['id','session_id', 'business_name', 'business_description', 'logo', 'locality','is_physical', 'store_address','lat',
                  'long', 'contact_no1','contact_no2', 'contact_no3','is_always_open','created_at','is_active','app_url']
 
-
-
-
 class BusinessLogoUploadAndStepOneSerializer(ModelSerializer):
     # logo = serializers.ImageField(max_length=None, use_url='logo')
     class Meta:
         model = TempAppMasters
-        fields =['id','logo','business_name','business_description','locality']
-
-
-
-
-
-
-
-
-
-
-# class MultipleUploadImagesSerializer(ModelSerializer):
-#     app_images = TempAppImagesSerializer(many=True)
-#     print('app_images::', app_images)
-#     class Meta:
-#         model = TempAppImgs
-#         fields =['app','src','app_images']
-#     def create(self, validated_data):
-#         print('validated_data::', validated_data)
-
-# class UpdateTempAppCategorySerializer(ModelSerializer):
-#     appmaster_appmapping = TempAppCategoryMapingSerializer(many=True)
-#     class Meta:
-#         model = TempAppMasters
-#         fields =['id','appmaster_appmapping']
-#
-#     def update(self, instance, validated_data):
-#         data_dict = validated_data.get('appmaster_appmapping')
-#
-#         print('validated_data::', data_dict)
-#         for
-#         new_data = TempAppCategoryMapings.objects.create(appmaster_id = data_dict['appmaster'], app_category_id = data_dict['app_category'])
-#         return new_data
+        # fields =['id','logo','business_name','business_description','locality']
+        fields =['id','logo','business_name','business_description']
 
 class UpdateTempAppCategoryMappingSerializer(ModelSerializer):
 
@@ -170,8 +129,8 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
                 temp_app_master_id= app_data.id
                 app_data.is_active = False
                 app_data.save()
-
-            temp_appmaping_data = TempAppCategoryMapings.objects.filter(appmaster_id=temp_app_master_id)[:1]
+            if temp_app_master_id:
+                temp_appmaping_data = TempAppCategoryMapings.objects.filter(appmaster_id=temp_app_master_id)[:1]
             # print('temp_appmaping_data::', temp_appmaping_data)
             for mapping_data in temp_appmaping_data:
                 insert_app_mapping=AppCategoryMapings.objects.create(appmaster_id = app_master_id,app_category_id = mapping_data.app_category_id)
@@ -181,10 +140,13 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
             print('temp_app_images_data::', temp_app_images_data)
             for app_img in temp_app_images_data:
                 insert_app_images = AppImgages.objects.create(app = insert_app_master,app_images=app_img.app_images)
-            instance.save()
-            return instance
+
         except Exception as e:
             raise e
+        finally:
+            instance.save()
+            return instance
+
 
 
 class TempUsersDetailsSerializer(ModelSerializer):
@@ -209,7 +171,7 @@ class TempAppCategoryMapingDetailsSerializer(ModelSerializer):
 class InsertAppUrlTempAppMasterSerializer(ModelSerializer):
     class Meta:
         model = TempAppMasters
-        fields =['id','app_url']
+        fields =['id','app_url','locality']
 
 
 class CreateTempAppProductCategoriesSerializer(ModelSerializer):
@@ -222,6 +184,49 @@ class CreateTempAppProductSerializer(ModelSerializer):
         model = TempAppProducts
         fields =['id','app_master','product_category','product_name','description','product_code','price',
                  'discounted_price', 'tags', 'packing_charges', 'hide_org_price_status']
+
+
+class CreateMultipleTempAppProductsSerializer(ModelSerializer):
+    products = CreateTempAppProductSerializer(many =True)
+    class Meta:
+        model = TempAppProducts
+        fields = ['products']
+    def create(self, validated_data):
+        data_list = []
+        products =  validated_data['products']
+        for data in products:
+            product = dict(data)
+            add_product = TempAppProducts.objects.create(**product)
+            data_list.append(add_product)
+        return {'products': data_list}
+
+
+
+
+
+
+
+
+
+class CreateMultipleTempAppProductCategoriesSerializer(ModelSerializer):
+    product_categories = CreateTempAppProductCategoriesSerializer(many=True)
+    class Meta:
+        model = TempAppProductCategories
+        fields = ['product_categories']
+
+    def create(self, validated_data):
+        data_list = []
+        print('validated_data::', validated_data['product_categories'])
+        categoies =  validated_data['product_categories']
+        for data in categoies:
+            category = dict(data)
+            add_category = TempAppProductCategories.objects.create(**category)
+            data_list.append(add_category)
+        return {'product_categories': data_list}
+    def update(self, instance, validated_data):
+        return validated_data
+
+
 
 class TempAppProductCategoriesSerializer(ModelSerializer):
     class Meta:

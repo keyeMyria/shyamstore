@@ -3,10 +3,10 @@ from states.models import *
 
 class Customers(models.Model):
     customer_name = models.CharField(max_length=255)
-    email = models.EmailField()
+    email = models.EmailField(unique=True, blank=True, null=True)
     is_active = models.BooleanField(default=True)
     last_login = models.DateTimeField(blank=True, null=True)
-    contact_no = models.CharField(max_length=15,default=None, blank=True, null=True)
+    contact_no = models.CharField(max_length=15,unique=True,default=None, blank=True, null=True)
     password = models.CharField(max_length=255)
 
     class Meta:

@@ -122,13 +122,14 @@ class InsertAppUrlTempAppMasterView(RetrieveUpdateAPIView):
 
 class CreateTempAppProductCategoriesView(ListCreateAPIView):
     queryset = TempAppProductCategories.objects.all()
-    serializer_class = CreateTempAppProductCategoriesSerializer
-
+    #serializer_class = CreateTempAppProductCategoriesSerializer
+    serializer_class = CreateMultipleTempAppProductCategoriesSerializer
 
 
 class CreateTempAppProductView(ListCreateAPIView):
     queryset = TempAppProducts.objects.all()
-    serializer_class = CreateTempAppProductSerializer
+    # serializer_class = CreateTempAppProductSerializer
+    serializer_class = CreateMultipleTempAppProductsSerializer
 
 class TempAppProductListView(ListAPIView):
     queryset = TempAppProducts.objects.all()
@@ -156,4 +157,117 @@ class EditTempAppProductCategoriesView(RetrieveUpdateAPIView):
 class AddCategoryAndProductView(ListCreateAPIView):
     queryset = TempAppProductCategories.objects.all()
     serializer_class = AddCategoryAndProductSerializer
+
+class CreateMultiTempAppProductCategoriesView(CreateAPIView):
+    queryset = TempAppProducts.objects.all()
+    serializer_class = CreateMultipleTempAppProductCategoriesSerializer
+
+
+class EditTempAppProductCategoriesView(UpdateAPIView):
+    def update(self, request, *args, **kwargs):
+        appmaster_id = self.kwargs['appmaster_id']
+        get_datas = TempAppProductCategories.objects.filter(app_master_id=appmaster_id, is_active = True)
+        exiest_ids = [ids.id for ids in get_datas]
+        upd_ids =[]
+        del_ids =[]
+        print('exiest_ids::', exiest_ids)
+        for category in request.data["product_categories"]:
+            if category["id"] and exiest_ids:
+                upd_ids.append(category["id"])
+                del_ids = list(set(exiest_ids)-set(upd_ids))
+
+
+        if del_ids:
+            print('upd_ids:{}\ndel_ids:{}'.format(upd_ids, del_ids))
+            pro_cat_data = TempAppProductCategories.objects.filter(id__in=del_ids)
+            for del_data in pro_cat_data:
+                del_data.is_active = False
+                del_data.save()
+
+        for data in request.data["product_categories"]:
+            if data["id"] in upd_ids:
+                pro_cat_data = TempAppProductCategories.objects.filter(pk=data["id"])
+                for update_data in pro_cat_data:
+                    update_data.category_name = data["category_name"]
+                    update_data.description = data["description"]
+                    update_data.save()
+            else:
+                TempAppProductCategories.objects.create(app_master_id = data["app_master"],
+                                                        category_name = data["category_name"],
+                                                        description = data["description"])
+        categories = TempAppProductCategories.objects.filter(is_active = True,app_master_id=appmaster_id)
+        data_list =[]
+        for data in categories:
+            data_dict = {"id":data.id,"category_name":data.category_name, "description":data.description}
+            data_list.append(data_dict)
+
+
+        return Response({"product_categories": data_list})
+
+class EditTempAppProductsView(UpdateAPIView):
+    def update(self, request, *args, **kwargs):
+        appmaster_id = self.kwargs['appmaster_id']
+        print("appmaster_id:", appmaster_id)
+        get_datas = TempAppProducts.objects.filter(app_master_id=appmaster_id, is_active = True)
+        exiest_ids = [ids.id for ids in get_datas]
+        upd_ids =[]
+        del_ids =[]
+        print('exiest_ids::', exiest_ids)
+        if exiest_ids:
+            for product in request.data["products"]:
+                if product["id"]:
+                    upd_ids.append(product["id"])
+                    del_ids = list(set(exiest_ids)-set(upd_ids))
+
+
+        if del_ids:
+            print('upd_ids:{}\ndel_ids:{}'.format(upd_ids, del_ids))
+            product_data = TempAppProducts.objects.filter(id__in=del_ids)
+            for del_data in product_data:
+                del_data.is_active = False
+                del_data.save()
+        for data in request.data["products"]:
+            if data["id"] in upd_ids:
+                pro_data = TempAppProducts.objects.filter(pk=data["id"])
+                for update_data in pro_data:
+                    update_data.app_master_id=data["app_master"]
+                    update_data.product_category=data["product_category"]
+                    update_data.product_name=data["product_name"]
+                    update_data.description=data["description"]
+                    update_data.product_code=data["product_code"]
+                    update_data.price=data["price"]
+                    update_data.discounted_price=data["discounted_price"]
+                    update_data.tags=data["tags"]
+                    update_data.packing_charges=data["packing_charges"]
+                    update_data.hide_org_price_status=data["hide_org_price_status"]
+                    update_data.save()
+            else:
+                # print("insert")
+                app_master_id = data.pop("app_master")
+                product_category_id = data.pop("product_category")
+                TempAppProducts.objects.create(app_master_id=app_master_id,
+                    product_category_id=product_category_id, **data)
+        products = TempAppProducts.objects.filter(is_active = True,app_master_id=appmaster_id)
+        data_list =[]
+        for pro_data in products:
+            data_dict ={}
+            data_dict['id'] = pro_data.id
+            data_dict['app_master'] = pro_data.app_master_id
+            data_dict['product_category'] = pro_data.product_category_id
+            data_dict['product_name'] = pro_data.product_name
+            data_dict['description'] = pro_data.description
+            data_dict['product_code'] = pro_data.product_code
+            data_dict['price'] = pro_data.price
+            data_dict['discounted_price'] = pro_data.discounted_price
+            data_dict['tags'] = pro_data.tags
+            data_dict['packing_charges'] = pro_data.packing_charges
+            data_dict['hide_org_price_status'] = pro_data.hide_org_price_status
+            data_list.append(data_dict)
+
+        #     data_dict = {"id":data.id,"category_name":data.category_name, "description":data.description}
+        #     data_list.append(data_dict)
+
+
+        return Response({"products": data_list})
+
 

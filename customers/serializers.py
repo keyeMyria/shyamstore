@@ -10,7 +10,7 @@ class CustomersRegistrationSerializer(ModelSerializer):
         fields = "__all__"
 
 class LoginCustomerSerializer(ModelSerializer):
-    email_or_phone = serializers.CharField()
+    username = serializers.CharField()
     class Meta:
         model = Customers
-        fields = ['email_or_phone','password']
+        fields = ['username','password']

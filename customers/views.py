@@ -22,17 +22,18 @@ class LoginCustomerView(ListCreateAPIView):
         request_data = {}
         data= request.data
         login_data = Customers.objects.filter(
-            Q(email=data["email_or_phone"]) | Q(contact_no=data["email_or_phone"]),
+            Q(email=data["username"]) | Q(contact_no=data["username"]),
             password=data["password"])[:1]
         if login_data:
-            print('login_data::', login_data)
             for data in login_data:
                 data.last_login = datetime.now()
                 data.save()
+                request_data['user_id'] = data.id
                 request_data['email'] = data.email
                 request_data['contact_no'] = data.contact_no
                 request_data['success'] = 1
         else:
-            request_data['success']=0
+            # request_data['error']=0
+            request_data['error']="You have entered an invalid username or password"
         return Response(request_data)
 
