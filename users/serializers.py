@@ -38,3 +38,13 @@ class UserSerializer(ModelSerializer):
 #         # user_users_pic = validated_data.get("users_pic")
 #         print('user_username::', user_username)
 #         return True
+
+class EditStep2OwnerDetailsSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            'id'
+            'first_name',
+            'email',
+
+        ]
