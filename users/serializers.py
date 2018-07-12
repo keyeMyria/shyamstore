@@ -2,6 +2,7 @@ from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 from users.models import *
 from django.contrib.auth.models import *
+from app_masters.serializers import *
 
 
 class UserLoginSerializer(ModelSerializer):
@@ -38,3 +39,17 @@ class UserSerializer(ModelSerializer):
 #         # user_users_pic = validated_data.get("users_pic")
 #         print('user_username::', user_username)
 #         return True
+
+
+class UserDetailsSerializer(ModelSerializer):
+    class Meta:
+        model = UserDetails
+        fields = "__all__"
+
+
+class UsersAppDetailsSerializer(ModelSerializer):
+    # app_details = OrgAppMastersSerializer(many=True)
+    user_details = UserDetailsSerializer(many=True)
+    class Meta:
+        model = User
+        fields=["id","first_name","last_name","email","user_details"]

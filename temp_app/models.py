@@ -60,6 +60,36 @@ class TempAppCategoryMapings(models.Model):
         for img_data in app_imgs:
             img_list.append({'id': img_data.id, 'app_master_id':img_data.app.id, 'app_img': img_data.app_images.url})
         return img_list
+    def product_details(self):
+        product_details =[]
+        category_data = TempAppProductCategories.objects.filter(app_master_id=self.appmaster.id, is_active=True)
+        for category in category_data:
+            product_list = []
+            category_dict = {}
+            category_dict['id']=category.id
+            category_dict['category_name'] = category.category_name
+            category_dict['description'] = category.description
+
+            product_data = TempAppProducts.objects.filter(app_master_id=self.appmaster.id,product_category_id=category_dict['id'],is_active=True)
+            for product in product_data:
+                products_dict = {}
+                products_dict["id"]=product.id
+                products_dict["product_category_id"]=product.product_category_id
+                products_dict["product_name"]=product.product_name
+                products_dict['description'] = product.description
+                products_dict['product_code'] = product.product_code
+                products_dict['price'] = product.price
+                products_dict['discounted_price'] = product.discounted_price
+                products_dict['tags'] = product.tags
+                products_dict['hide_org_price_status'] = product.hide_org_price_status
+                products_dict['packing_charges'] = product.packing_charges
+                product_list.append(products_dict)
+
+            category_dict["products"] = product_list
+
+            product_details.append(category_dict)
+        return product_details
+
 
 class TempAppProductCategories(models.Model):
     app_master = models.ForeignKey(TempAppMasters, on_delete=models.CASCADE)

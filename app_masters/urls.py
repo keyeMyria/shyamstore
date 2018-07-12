@@ -7,7 +7,10 @@ urlpatterns = [
     path('upload_coverpic/',views.CoverPicsUpload.as_view()),
     path('org_app_master/<user_id>/',views.OrgAppMasterListView.as_view()),
     path('edit_org_app_master/<pk>/',views.EditOrgAppMasterView.as_view()),
-    path('edit_org_app_mappings/<appmaster_id>/',views.EditOrgAppMappingsView.as_view())
+    path('edit_org_app_mappings/<appmaster_id>/',views.EditOrgAppMappingsView.as_view()),
+    path('add_app_visiting_count/<pk>/',views.AddAppVisitingCountView.as_view()),
+    path('most_viewed_app/',views.MostViewedAppReadView.as_view()),
+
 
 
 ]

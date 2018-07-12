@@ -5,6 +5,9 @@ from temp_app.models import *
 from django.contrib.auth.models import *
 from app_masters.models import *
 from users.models import *
+from app_products.models import *
+# from passlib.hash import pbkdf2_sha256
+from django.contrib.auth.models import User,Group
 
 class TempAppCategoryMapingSerializer(ModelSerializer):
     class Meta:
@@ -48,7 +51,17 @@ class TempUsersAndStepTwoSerializer(ModelSerializer):
         # fields ="__all__"
 
     def create(self, validated_data):
-        temp_user = TempUsers.objects.create(**validated_data)
+        session_id = validated_data.get("session_id")
+        user_exiest = TempUsers.objects.filter(session_id = session_id)
+        if user_exiest:
+            for user in user_exiest:
+                user.owner_name = validated_data.get("owner_name")
+                user.owner_designation = validated_data.get("owner_designation")
+                user.owner_pic = validated_data.get("owner_pic")
+                user.save()
+                temp_user = user
+        else:
+            temp_user = TempUsers.objects.create(**validated_data)
         return temp_user
 
 class TempAppImagesSerializer(ModelSerializer):
@@ -104,18 +117,14 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
         instance.email_id = validated_data.get("email_id", instance.email_id)
         instance.contact_no = validated_data.get("contact_no", instance.contact_no)
         try:
-            temp_user_data = TempUsers.objects.filter(id=instance.id)
-            for user_data in temp_user_data:
-                insert_user = User.objects.create(first_name = str(user_data.owner_name),username=validated_data.get("email_id"),email=validated_data.get("email_id"), is_staff = True, password = "123456")
-                session_id = user_data.session_id
-                user_id = insert_user.id
-                insert_user_details = UserDetails.objects.create(contact_no=validated_data.get("contact_no"),
-                                                                 users_pic = user_data.owner_pic,
-                                                                 user_id = user_id)
-
-                temp_app_data = TempAppMasters.objects.filter(session_id=session_id)[:1]
-                # temp_app_data = TempAppMasters.objects.filter(session_id=session_id)
-                print(temp_app_data)
+            print('temp_user_id::',instance.id)
+            user_id,session_id = self.insert_users(temp_user_id =instance.id,
+                                                  email=validated_data.get("email_id"),
+                                                  contact_no=validated_data.get("contact_no") )
+            print('user_id::',user_id)
+            print('session_id::',session_id)
+            temp_app_data = TempAppMasters.objects.filter(session_id=session_id)[:1]
+            print(temp_app_data)
             for app_data in temp_app_data:
 
                 insert_app_master = AppMasters.objects.create(user_id=user_id,
@@ -141,11 +150,86 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
             for app_img in temp_app_images_data:
                 insert_app_images = AppImgages.objects.create(app = insert_app_master,app_images=app_img.app_images)
 
+            self.insert_product_and_category(temp_app=temp_app_master_id,org_app =app_master_id)
+
         except Exception as e:
             raise e
         finally:
             instance.save()
             return instance
+
+    def insert_product_and_category(self, temp_app:int,org_app:int):
+        try:
+            data_list = []
+            temp_product_category_data = TempAppProductCategories.objects.filter(app_master_id=temp_app, is_active=True)
+            for category_data in temp_product_category_data:
+                product_list = []
+                org_category = AppProductCategories.objects.create(app_master_id =org_app,
+                                                    category_name=category_data.category_name,
+                                                    description=category_data.description)
+                org_category_id = org_category.id
+                temp_product_data = TempAppProducts.objects.filter(app_master_id=temp_app,
+                                                                  product_category_id=category_data.id,
+                                                                  is_active=True)
+                for product in temp_product_data:
+                    pro_dict = {}
+                    org_app_master_id=org_app
+                    pro_dict['product_name'] = product.product_name
+                    pro_dict['description'] = product.description
+                    pro_dict['product_code'] = product.product_code
+                    pro_dict['price'] = product.price
+                    pro_dict['discounted_price'] = product.discounted_price
+                    pro_dict['tags'] = product.tags
+                    pro_dict['hide_org_price_status'] = product.hide_org_price_status
+                    pro_dict['packing_charges'] = product.packing_charges
+                    org_product = AppProducts.objects.create(app_master_id=org_app_master_id,product_category_id =org_category_id,**pro_dict)
+                    product_list.append(org_product.id)
+
+                data_list.append({"categories_id":org_category_id,"products_ids":product_list})
+            return data_list
+        except Exception as e:
+            raise e
+
+    def insert_users(self, temp_user_id:int, email:str, contact_no:int):
+        print('temp_user fgrfg::',temp_user_id)
+        try:
+            temp_user_data = TempUsers.objects.filter(id=temp_user_id)
+            for user in temp_user_data:
+                session_id = user.session_id
+                user_exiest = User.objects.filter(email=email)
+                if user_exiest:
+                    for org_user in user_exiest:
+                        org_user.first_name = str(user.owner_name)
+                        org_user.is_superuser = False
+                        org_user.is_staff = False
+                        org_user.set_password("123456")
+                        org_user.save()
+                        user_id = org_user.id
+                    user_details_data = UserDetails.objects.filter(user_id=user_id)
+                    for details in user_details_data:
+                        details.contact_no = contact_no
+                        details.users_pic = user.owner_pic
+                        details.save()
+                else:
+                    insert_user = User.objects.create(first_name=str(user.owner_name),
+                                                      username=email,
+                                                      email=email,
+                                                      is_staff=False,
+                                                      is_superuser=False,
+                                                      is_active=True)
+                    insert_user.set_password("123456")
+                    insert_user.save()
+                    user_id = insert_user.id
+                    UserDetails.objects.create(contact_no=contact_no,
+                                               users_pic=user.owner_pic,
+                                               user_id=user_id)
+
+            return user_id, session_id
+        except Exception as e:
+            raise e
+
+
+
 
 
 
@@ -166,7 +250,7 @@ class TempAppCategoryMapingDetailsSerializer(ModelSerializer):
     class Meta:
         model = TempAppCategoryMapings
         # fields =['id','appmaster','app_category']
-        fields =['id','appmaster','app_category','app_imgs']
+        fields =['id','appmaster','app_category','app_imgs','product_details']
 
 class InsertAppUrlTempAppMasterSerializer(ModelSerializer):
     class Meta:
