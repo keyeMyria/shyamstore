@@ -41,12 +41,5 @@ class CustomObtainAuthToken(ObtainAuthToken):
 
 
 class UserDetailsAndAppMasterDetailsView(RetrieveAPIView):
-    print("aaaa")
     queryset = User.objects.all()
-    print(queryset.query)
     serializer_class = UsersAppDetailsSerializer
-    # def get_queryset(self):
-    #     id = self.kwargs['pk']
-    #     queryset = User.objects.filter(id=id)
-    #     print(queryset.query)
-    #     return

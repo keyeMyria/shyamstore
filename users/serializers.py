@@ -44,7 +44,7 @@ class UserSerializer(ModelSerializer):
 class UserDetailsSerializer(ModelSerializer):
     class Meta:
         model = UserDetails
-        fields = "__all__"
+        fields = ['id','users_pic','contact_no','app_details']
 
 
 class UsersAppDetailsSerializer(ModelSerializer):
