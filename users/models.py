@@ -47,7 +47,6 @@ class UserDetails(models.Model):
                          "app_description":app.business_description,
                          "logo":app.logo.url}
             app_details.append(data_dict)
-        print('app_details::', app_details)
         return app_details
 
 
