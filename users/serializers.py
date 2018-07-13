@@ -41,6 +41,17 @@ class UserSerializer(ModelSerializer):
 #         return True
 
 
+class EditStep2OwnerDetailsSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            'id'
+            'first_name',
+            'email',
+
+        ]
+
+
 class UserDetailsSerializer(ModelSerializer):
     class Meta:
         model = UserDetails
@@ -53,3 +64,4 @@ class UsersAppDetailsSerializer(ModelSerializer):
     class Meta:
         model = User
         fields=["id","first_name","last_name","email","user_details"]
+

@@ -40,6 +40,13 @@ class CustomObtainAuthToken(ObtainAuthToken):
             return Response({'message':'Invalid Login','status':status.HTTP_400_BAD_REQUEST})
 
 
+
+class EditStep2OwnerDetailsView(RetrieveUpdateAPIView):
+    queryset = User.objects.all()
+    print('queryset::',queryset)
+    serializer = EditStep2OwnerDetailsSerializer
+
 class UserDetailsAndAppMasterDetailsView(RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UsersAppDetailsSerializer
+

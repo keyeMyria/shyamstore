@@ -2,6 +2,10 @@ from django.shortcuts import render
 from app_masters.serializers import *
 from rest_framework.generics import*
 from app_category.serializers import *
+from rest_framework.views import *
+from rest_framework import status, viewsets
+from PIL import Image
+from users.models import *
 
 class CoverPicsUpload(ListCreateAPIView):
     queryset = AppMasters.objects.all()
@@ -20,14 +24,30 @@ class EditOrgAppMasterView(RetrieveUpdateAPIView):
     queryset = AppMasters.objects.all()
     serializer_class = UpdateOrgAppMastersSerializer
 
-class EditOrgAppMappingsView(RetrieveUpdateAPIView):
+
+
+
+
+
+
+
+
+
+class EditOrgAppMappingsView(UpdateAPIView):
     queryset = AppCategoryMapings.objects.all()
     serializer_class = UpdateOrgAppMappingsSerializer
-    def get_queryset(self):
-        appmaster_id = self.kwargs['appmaster_id']
-        print('appmaster_id::', appmaster_id)
-        queryset = AppCategoryMapings.objects.filter(appmaster_id=appmaster_id)
-        return queryset
+    def update(self, request, *args, **kwargs):
+        appmaster_id = kwargs['pk']
+        temp_mapping_data = AppCategoryMapings.objects.filter(appmaster_id=appmaster_id)[:1]
+        for data in temp_mapping_data:
+            data.app_category_id = request.data['app_category']
+            data.save()
+        return Response({'app_category':request.data['app_category'], 'appmaster':appmaster_id})
+
+
+class EditStep1OrgAppMasterView(RetrieveUpdateAPIView):
+    queryset = AppMasters.objects.all()
+    serializer_class = UpdateStep1OrgAppMastersSerializer
 
 class AddAppVisitingCountView(RetrieveUpdateAPIView):
     queryset = AppMasters.objects.all()

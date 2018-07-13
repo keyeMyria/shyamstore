@@ -6,7 +6,6 @@ from django.urls import path
 urlpatterns = [
     # path('create_user/',views.CreateUsersView.as_view())
     path('login/', views.CustomObtainAuthToken.as_view()),
+    path('edit_step2_owner_details/<pk>/',views.EditStep2OwnerDetailsView.as_view()),
     path('app_and_user_details/<pk>/', views.UserDetailsAndAppMasterDetailsView.as_view()),
-
-
 ]
