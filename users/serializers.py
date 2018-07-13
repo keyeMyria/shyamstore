@@ -40,7 +40,7 @@ class UserSerializer(ModelSerializer):
 #         print('user_username::', user_username)
 #         return True
 
-<<<<<<< HEAD
+
 class EditStep2OwnerDetailsSerializer(ModelSerializer):
     class Meta:
         model = User
@@ -50,7 +50,7 @@ class EditStep2OwnerDetailsSerializer(ModelSerializer):
             'email',
 
         ]
-=======
+
 
 class UserDetailsSerializer(ModelSerializer):
     class Meta:
@@ -64,4 +64,4 @@ class UsersAppDetailsSerializer(ModelSerializer):
     class Meta:
         model = User
         fields=["id","first_name","last_name","email","user_details"]
->>>>>>> 758a64e9be828dee0ae6dc250a474a123940e170
+
