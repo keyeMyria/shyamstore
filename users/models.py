@@ -1,6 +1,7 @@
 from django.db import models
 from states.models import *
 from django.contrib.auth.models import *
+from app_masters.models import *
 
 
 class Designations(models.Model):
@@ -36,5 +37,19 @@ class UserDetails(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+    def app_details(self):
+        app_details = []
+        app_data = AppMasters.objects.filter(user_id=self.user_id)
+        for app in app_data:
+            data_dict = {"id":app.id,
+                         "app_name":app.business_name,
+                         "app_description":app.business_description,
+                         "logo":app.logo.url}
+            app_details.append(data_dict)
+        print('app_details::', app_details)
+        return app_details
+
+
 
 

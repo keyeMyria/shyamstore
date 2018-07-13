@@ -231,18 +231,17 @@ class EditTempAppProductsView(UpdateAPIView):
                 pro_data = TempAppProducts.objects.filter(pk=data["id"])
                 for update_data in pro_data:
                     update_data.app_master_id=data["app_master"]
-                    update_data.product_category=data["product_category"]
+                    update_data.product_category_id=data["product_category"]
                     update_data.product_name=data["product_name"]
-                    update_data.description=data["description"]
-                    update_data.product_code=data["product_code"]
+                    # update_data.description=data["description"]
+                    # update_data.product_code=data["product_code"]
                     update_data.price=data["price"]
                     update_data.discounted_price=data["discounted_price"]
                     update_data.tags=data["tags"]
                     update_data.packing_charges=data["packing_charges"]
-                    update_data.hide_org_price_status=data["hide_org_price_status"]
+                    # update_data.hide_org_price_status=data["hide_org_price_status"]
                     update_data.save()
             else:
-                # print("insert")
                 app_master_id = data.pop("app_master")
                 product_category_id = data.pop("product_category")
                 TempAppProducts.objects.create(app_master_id=app_master_id,
@@ -263,9 +262,6 @@ class EditTempAppProductsView(UpdateAPIView):
             data_dict['packing_charges'] = pro_data.packing_charges
             data_dict['hide_org_price_status'] = pro_data.hide_org_price_status
             data_list.append(data_dict)
-
-        #     data_dict = {"id":data.id,"category_name":data.category_name, "description":data.description}
-        #     data_list.append(data_dict)
 
 
         return Response({"products": data_list})

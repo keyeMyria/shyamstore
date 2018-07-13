@@ -93,3 +93,13 @@ class UpdateStep1OrgAppMastersSerializer(ModelSerializer):
         return instance
 
 
+class AddAppVisitingCountSerializer(ModelSerializer):
+    class Meta:
+        model = AppMasters
+        fields = ["id", "visiting_count"]
+
+    def update(self, instance, validated_data):
+        instance.visiting_count = instance.visiting_count + 1
+        instance.save()
+        return instance
+

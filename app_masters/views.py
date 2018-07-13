@@ -49,3 +49,10 @@ class EditStep1OrgAppMasterView(RetrieveUpdateAPIView):
     queryset = AppMasters.objects.all()
     serializer_class = UpdateStep1OrgAppMastersSerializer
 
+class AddAppVisitingCountView(RetrieveUpdateAPIView):
+    queryset = AppMasters.objects.all()
+    serializer_class =AddAppVisitingCountSerializer
+
+class MostViewedAppReadView(ListAPIView):
+    queryset = AppMasters.objects.all().order_by("-visiting_count")
+    serializer_class = OrgAppMastersSerializer

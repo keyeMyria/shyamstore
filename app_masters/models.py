@@ -38,6 +38,7 @@ class AppMasters(models.Model):
     is_active = models.BooleanField(default=True)
     paid = models.BooleanField(default=False)
     app_url = models.CharField(max_length=500, blank=True, null=True)
+    visiting_count = models.BigIntegerField(default=0, blank=True, null=True)
     def __str__(self):
         return str(self.id)
 

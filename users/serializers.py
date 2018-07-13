@@ -2,6 +2,7 @@ from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 from users.models import *
 from django.contrib.auth.models import *
+from app_masters.serializers import *
 
 
 class UserLoginSerializer(ModelSerializer):
@@ -39,6 +40,7 @@ class UserSerializer(ModelSerializer):
 #         print('user_username::', user_username)
 #         return True
 
+<<<<<<< HEAD
 class EditStep2OwnerDetailsSerializer(ModelSerializer):
     class Meta:
         model = User
@@ -48,3 +50,18 @@ class EditStep2OwnerDetailsSerializer(ModelSerializer):
             'email',
 
         ]
+=======
+
+class UserDetailsSerializer(ModelSerializer):
+    class Meta:
+        model = UserDetails
+        fields = ['id','users_pic','contact_no','app_details']
+
+
+class UsersAppDetailsSerializer(ModelSerializer):
+    # app_details = OrgAppMastersSerializer(many=True)
+    user_details = UserDetailsSerializer(many=True)
+    class Meta:
+        model = User
+        fields=["id","first_name","last_name","email","user_details"]
+>>>>>>> 758a64e9be828dee0ae6dc250a474a123940e170

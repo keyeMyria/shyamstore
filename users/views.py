@@ -6,6 +6,7 @@ from rest_framework.authentication import TokenAuthentication,SessionAuthenticat
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework import viewsets,status
+from rest_framework.views import *
 # Create your views here.
 
 # class CreateUsersView(CreateAPIView):
@@ -39,7 +40,13 @@ class CustomObtainAuthToken(ObtainAuthToken):
             return Response({'message':'Invalid Login','status':status.HTTP_400_BAD_REQUEST})
 
 
+
 class EditStep2OwnerDetailsView(RetrieveUpdateAPIView):
     queryset = User.objects.all()
     print('queryset::',queryset)
     serializer = EditStep2OwnerDetailsSerializer
+
+class UserDetailsAndAppMasterDetailsView(RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UsersAppDetailsSerializer
+
