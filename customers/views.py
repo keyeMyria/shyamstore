@@ -37,3 +37,10 @@ class LoginCustomerView(ListCreateAPIView):
             request_data['error']="You have entered an invalid username or password"
         return Response(request_data)
 
+class MappingCustomerAndAppCreateView(CreateAPIView):
+    queryset = CustomerAppMasterMapping.objects.all()
+    serializer_class = CustomerAppMasterMappingSerializer
+
+class CustomerDashbordReadView(ListAPIView):
+    queryset = Customers.objects.all()
+    serializer_class = CustomerAppDetailsSerializer

@@ -22,25 +22,32 @@ class AppMasters(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     business_name = models.CharField(max_length=100, blank=True,null=True)
     business_description = models.TextField(blank=True, null=True)
-    # logo = models.CharField(max_length=255, blank=True,null=True)
+    business_est_year = models.IntegerField(max_length=4, blank=True,null=True)
     logo = models.ImageField(upload_to="logos", default=None, blank=True, null=True)
     locality = models.TextField(blank=True,null=True)
-    is_physical = models.BooleanField(default=True)
+    is_physical_store = models.BooleanField(default=True)
     store_address = models.TextField(blank=True,null=True)
     lat = models.CharField(max_length=255, blank=True,null=True)
     long = models.CharField(max_length=255, blank=True, null=True)
     contact_no1 = models.BigIntegerField(blank=True,null=True)
     contact_no2 = models.BigIntegerField(blank=True,null=True)
     contact_no3 = models.BigIntegerField(blank=True,null=True)
-    is_allose_open = models.BooleanField(choices=STATUS_CHOICES, default=1)
+    is_always_open = models.BooleanField(choices=STATUS_CHOICES, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
-    paid = models.BooleanField(default=False)
+    is_paid = models.BooleanField(default=False)
     app_url = models.CharField(max_length=500, blank=True, null=True)
     visiting_count = models.BigIntegerField(default=0, blank=True, null=True)
     def __str__(self):
         return str(self.id)
+
+    def category(self):
+        category_dict = {}
+        app_category_data = AppCategoryMapings.objects.filter(appmaster_id=self.id)
+        for data in app_category_data:
+            category_dict['category'] = data.app_category.category_name
+        return category_dict['category']
 
 
 class AppCategoryMapings(models.Model):
@@ -57,7 +64,7 @@ class AppCategoryMapings(models.Model):
         return str(self.id)
 
 class AppImgages(models.Model):
-    app = models.ForeignKey(AppMasters, on_delete=models.CASCADE)
+    appmaster = models.ForeignKey(AppMasters, on_delete=models.CASCADE)
     app_images = models.ImageField(upload_to='app_images', default=None)
     src = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)

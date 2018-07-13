@@ -25,7 +25,7 @@ class OrgAppMastersSerializer(ModelSerializer):
     user = UserSerializer()
     class Meta:
         model = AppMasters
-        fields =['id','logo', 'business_name','created_at','user']
+        fields =['id','logo', 'category', 'business_name','created_at','locality','user']
         # fields ="__all__"
 
 
@@ -43,14 +43,6 @@ class UpdateOrgAppMastersSerializer(ModelSerializer):
         instance.logo = validated_data.get("logo",instance.logo)
         instance.save()
         return instance
-
-
-
-
-
-
-
-
 
 
 
@@ -104,4 +96,15 @@ class AddAppVisitingCountSerializer(ModelSerializer):
         return instance
 
 
+class SearchAppMastersSerializer(ModelSerializer):
+    logo = serializers.ImageField(max_length=None, use_url='logo')
+    user = UserSerializer()
+    class Meta:
+        model = AppMasters
+        fields =['id','logo', 'category', 'business_name','created_at','locality','user']
+
+class UpdateBusinessUrlSerializer(ModelSerializer):
+    class Meta:
+        model = AppMasters
+        fields =['id','app_url']
 

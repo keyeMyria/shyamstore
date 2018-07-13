@@ -148,7 +148,7 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
             temp_app_images_data = TempAppImgs.objects.filter(app_id = temp_app_master_id)[:1]
             print('temp_app_images_data::', temp_app_images_data)
             for app_img in temp_app_images_data:
-                insert_app_images = AppImgages.objects.create(app = insert_app_master,app_images=app_img.app_images)
+                insert_app_images = AppImgages.objects.create(appmaster_id = insert_app_master,app_images=app_img.app_images)
 
             self.insert_product_and_category(temp_app=temp_app_master_id,org_app =app_master_id)
 

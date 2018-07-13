@@ -1,5 +1,6 @@
 from django.db import models
 from states.models import *
+from app_masters.models import *
 
 class Customers(models.Model):
     customer_name = models.CharField(max_length=255)
@@ -15,8 +16,22 @@ class Customers(models.Model):
     def __str__(self):
         return str(self.customer_name)
 
+    def app_master(self):
+        app_master_list = []
+        customer_mapping_data = CustomerAppMasterMapping.objects.filter(customer_id=self.id,is_active=True)
+        for data in customer_mapping_data:
+            app_master_list.append({
+             "id":data.app_master.id,
+             "business_name":data.app_master.business_name,
+             "business_description": data.app_master.business_description,
+             "logo": data.app_master.logo.url,
+             "locality": data.app_master.locality,
+             "category": data.app_master.category()
+             })
+        return app_master_list
 
-class customer_address(models.Model):
+
+class CustomerAddress(models.Model):
     customer = models.ForeignKey(Customers,on_delete=models.CASCADE)
     state = models.ForeignKey(States, on_delete=models.CASCADE)
     address = models.TextField()
@@ -25,4 +40,13 @@ class customer_address(models.Model):
 
     def __str__(self):
         return str(self.address)
+
+class CustomerAppMasterMapping(models.Model):
+    customer = models.ForeignKey(Customers, on_delete=models.CASCADE,related_name="customer")
+    app_master = models.ForeignKey(AppMasters,on_delete=models.CASCADE,related_name="app_master")
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+    def __str__(self):
+        return str(self.id)
+
 

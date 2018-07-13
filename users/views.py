@@ -41,10 +41,16 @@ class CustomObtainAuthToken(ObtainAuthToken):
 
 
 
-class EditStep2OwnerDetailsView(RetrieveUpdateAPIView):
+class EditStepTowOwnerDetailsView(RetrieveUpdateAPIView):
     queryset = User.objects.all()
-    print('queryset::',queryset)
-    serializer = EditStep2OwnerDetailsSerializer
+    serializer_class = EditStepTowOwnerDetailsSerializer
+    # serializer_class = UsersDetailsSerializer
+    # def get_queryset(self):
+    #     user_id = self.kwargs['pk']
+    #     print('user_id::', user_id)
+    #     queryset = UserDetails.objects.filter(user_id=user_id)
+    #     print('queryset::', queryset)
+    #     return queryset
 
 class UserDetailsAndAppMasterDetailsView(RetrieveAPIView):
     queryset = User.objects.all()

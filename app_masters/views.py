@@ -6,6 +6,7 @@ from rest_framework.views import *
 from rest_framework import status, viewsets
 from PIL import Image
 from users.models import *
+from rest_framework import filters
 
 class CoverPicsUpload(ListCreateAPIView):
     queryset = AppMasters.objects.all()
@@ -54,5 +55,32 @@ class AddAppVisitingCountView(RetrieveUpdateAPIView):
     serializer_class =AddAppVisitingCountSerializer
 
 class MostViewedAppReadView(ListAPIView):
-    queryset = AppMasters.objects.all().order_by("-visiting_count")
+    queryset = AppMasters.objects.filter(is_active = True).order_by("-visiting_count")
     serializer_class = OrgAppMastersSerializer
+
+class SearchAppReadView(ListAPIView):
+    queryset = AppMasters.objects.filter(is_active=True)
+    serializer_class = SearchAppMastersSerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('locality','business_name')
+    def get_queryset(self):
+        category = self.request.query_params.get('category', None)
+        if category:
+            if category.find(",") > 0:
+                category_ids = category.split(",")
+                category_ids = [int(id) for id in category_ids]
+            else:
+                category_ids = [category]
+
+            category_mapping_data = AppCategoryMapings.objects.filter(app_category__in=category_ids)
+            app_master_ids = [data.appmaster_id for data in category_mapping_data]
+            queryset = AppMasters.objects.filter(id__in = app_master_ids,is_active = True)
+        else:
+            queryset = AppMasters.objects.filter(is_active = True)
+
+        return queryset
+
+class UpdateBusinessUrlView(RetrieveUpdateAPIView):
+    queryset = AppMasters.objects.all()
+    serializer_class = UpdateBusinessUrlSerializer
+
