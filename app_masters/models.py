@@ -22,7 +22,7 @@ class AppMasters(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     business_name = models.CharField(max_length=100, blank=True,null=True)
     business_description = models.TextField(blank=True, null=True)
-    business_est_year = models.IntegerField(max_length=4, blank=True,null=True)
+    business_est_year = models.IntegerField(blank=True,null=True)
     logo = models.ImageField(upload_to="logos", default=None, blank=True, null=True)
     locality = models.TextField(blank=True,null=True)
     is_physical_store = models.BooleanField(default=True)

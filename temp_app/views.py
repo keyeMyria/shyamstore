@@ -198,7 +198,18 @@ class EditTempAppProductCategoriesView(UpdateAPIView):
         categories = TempAppProductCategories.objects.filter(is_active = True,app_master_id=appmaster_id)
         data_list =[]
         for data in categories:
-            data_dict = {"id":data.id,"category_name":data.category_name, "description":data.description}
+            product_list = []
+            product_data = TempAppProducts.objects.filter(product_category_id=data.id ,is_active=True)
+            for product in product_data:
+                product_dict = {"id":product.id,
+                                "product_name":product.product_name,
+                                "price":product.price,
+                                "discounted_price":product.discounted_price,
+                                "tags":product.tags,
+                                "packing_charges":product.packing_charges}
+                product_list.append(product_dict)
+
+            data_dict = {"id":data.id,"category_name":data.category_name, "description":data.description,"products":product_list}
             data_list.append(data_dict)
 
 
@@ -207,18 +218,23 @@ class EditTempAppProductCategoriesView(UpdateAPIView):
 class EditTempAppProductsView(UpdateAPIView):
     def update(self, request, *args, **kwargs):
         appmaster_id = self.kwargs['appmaster_id']
-        print("appmaster_id:", appmaster_id)
-        get_datas = TempAppProducts.objects.filter(app_master_id=appmaster_id, is_active = True)
-        exiest_ids = [ids.id for ids in get_datas]
+        # print("appmaster_id:", appmaster_id)
+        exiest_ids = []
+        for data in request.data["products"]:
+            get_datas = TempAppProducts.objects.filter(app_master_id=appmaster_id,
+                                                       product_category_id=data["product_category"],
+                                                       is_active = True)
+            for ids in get_datas:
+                exiest_ids.append(ids.id)
         upd_ids =[]
         del_ids =[]
-        print('exiest_ids::', exiest_ids)
+        # print('exiest_ids::', exiest_ids)
         if exiest_ids:
             for product in request.data["products"]:
                 if product["id"]:
                     upd_ids.append(product["id"])
                     del_ids = list(set(exiest_ids)-set(upd_ids))
-
+        # print('del_ids::', del_ids)
 
         if del_ids:
             print('upd_ids:{}\ndel_ids:{}'.format(upd_ids, del_ids))
