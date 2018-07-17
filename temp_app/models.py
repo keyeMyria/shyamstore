@@ -1,6 +1,7 @@
 from django.db import models
 from app_category.models import *
 from django.conf import settings
+from users.models import Designations
 
 
 
@@ -19,7 +20,7 @@ class TempAppMasters(models.Model):
         ('1', 'is_allose_open'),
         ('0', 'None'),
     )
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     session_id = models.CharField(max_length=100)
     business_name = models.CharField(max_length=100, default=None, blank=True,null=True)
     business_description = models.TextField(blank=True,null=True)
@@ -137,7 +138,7 @@ class TempProductImages(models.Model):
 class TempUsers(models.Model):
     owner_name = models.CharField(max_length=255)
     session_id = models.CharField(max_length=50)
-    owner_designation = models.CharField(max_length=50,blank=True, null=True)
+    owner_designation = models.ForeignKey(Designations, on_delete=models.CASCADE,blank=True, null=True)
     owner_pic = models.ImageField(upload_to="users_pic", default=None, blank=True, null=True)
     email_id = models.EmailField(default=None,blank=True, null=True)
     contact_no = models.BigIntegerField(default=None,blank=True, null=True)

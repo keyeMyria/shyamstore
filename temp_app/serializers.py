@@ -44,25 +44,35 @@ class TempAppMastersDetailsSerializer(ModelSerializer):
         fields =['id','session_id', 'app_category']
 
 class TempUsersAndStepTwoSerializer(ModelSerializer):
-    # owner_pic = serializers.ImageField(max_length=None, use_url='users_pic')
+    owner_designation = serializers.IntegerField()
     class Meta:
         model = TempUsers
         fields =['id','owner_name','session_id','owner_designation','owner_pic']
-        # fields ="__all__"
 
     def create(self, validated_data):
         session_id = validated_data.get("session_id")
+        owner_designation_id = validated_data.pop('owner_designation')
+        print('owner_designation_id::', owner_designation_id)
         user_exiest = TempUsers.objects.filter(session_id = session_id)
         if user_exiest:
             for user in user_exiest:
-                user.owner_name = validated_data.get("owner_name")
-                user.owner_designation = validated_data.get("owner_designation")
-                user.owner_pic = validated_data.get("owner_pic")
+                user.owner_name = validated_data.get("owner_name",user.owner_name)
+                user.owner_designation_id = owner_designation_id
+                user.owner_pic = validated_data.get("owner_pic",user.owner_pic)
                 user.save()
-                temp_user = user
+                user_id =user.id
         else:
-            temp_user = TempUsers.objects.create(**validated_data)
-        return temp_user
+            temp_user = TempUsers.objects.create(owner_designation_id = owner_designation_id,**validated_data)
+            user_id = temp_user.id
+        data_dict = {}
+        user_details = TempUsers.objects.filter(pk=user_id,session_id=session_id)
+        for user_data in user_details:
+            data_dict['id']=user_data.id
+            data_dict['owner_name']  =user_data.owner_name
+            data_dict['session_id']=user_data.session_id
+            data_dict['owner_designation']=user_data.owner_designation_id
+            data_dict['owner_pic']=user_data.owner_pic
+        return data_dict
 
 class TempAppImagesSerializer(ModelSerializer):
     app_images = serializers.ImageField(max_length=None, use_url='app_images')
@@ -79,10 +89,9 @@ class TempAppMastersSerializer(ModelSerializer):
                  'long', 'contact_no1','contact_no2', 'contact_no3','is_always_open','created_at','is_active','app_url']
 
 class BusinessLogoUploadAndStepOneSerializer(ModelSerializer):
-    # logo = serializers.ImageField(max_length=None, use_url='logo')
+
     class Meta:
         model = TempAppMasters
-        # fields =['id','logo','business_name','business_description','locality']
         fields =['id','logo','business_name','business_description']
 
 class UpdateTempAppCategoryMappingSerializer(ModelSerializer):
@@ -117,12 +126,12 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
         instance.email_id = validated_data.get("email_id", instance.email_id)
         instance.contact_no = validated_data.get("contact_no", instance.contact_no)
         try:
-            print('temp_user_id::',instance.id)
+            # print('temp_user_id::',instance.id)
             user_id,session_id = self.insert_users(temp_user_id =instance.id,
                                                   email=validated_data.get("email_id"),
                                                   contact_no=validated_data.get("contact_no") )
-            print('user_id::',user_id)
-            print('session_id::',session_id)
+            # print('user_id::',user_id)
+            # print('session_id::',session_id)
             temp_app_data = TempAppMasters.objects.filter(session_id=session_id)[:1]
             print(temp_app_data)
             for app_data in temp_app_data:
@@ -141,16 +150,17 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
             if temp_app_master_id:
                 temp_appmaping_data = TempAppCategoryMapings.objects.filter(appmaster_id=temp_app_master_id)[:1]
             # print('temp_appmaping_data::', temp_appmaping_data)
+            self.insert_product_and_category(temp_app=temp_app_master_id, org_app=app_master_id)
             for mapping_data in temp_appmaping_data:
                 insert_app_mapping=AppCategoryMapings.objects.create(appmaster_id = app_master_id,app_category_id = mapping_data.app_category_id)
                 app_category_mapping_id = insert_app_mapping.id
 
-            temp_app_images_data = TempAppImgs.objects.filter(app_id = temp_app_master_id)[:1]
-            print('temp_app_images_data::', temp_app_images_data)
+            temp_app_images_data = TempAppImgs.objects.filter(app_id = temp_app_master_id)
             for app_img in temp_app_images_data:
-                insert_app_images = AppImgages.objects.create(appmaster_id = insert_app_master,app_images=app_img.app_images)
+                insert_app_images = AppImgages.objects.create(appmaster_id = app_master_id,app_images=app_img.app_images)
 
-            self.insert_product_and_category(temp_app=temp_app_master_id,org_app =app_master_id)
+
+
 
         except Exception as e:
             raise e
@@ -159,9 +169,12 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
             return instance
 
     def insert_product_and_category(self, temp_app:int,org_app:int):
+        print('temp_app:',temp_app)
+        print('org_app:',org_app)
         try:
             data_list = []
             temp_product_category_data = TempAppProductCategories.objects.filter(app_master_id=temp_app, is_active=True)
+            print('temp_product_category_data:',temp_product_category_data)
             for category_data in temp_product_category_data:
                 product_list = []
                 org_category = AppProductCategories.objects.create(app_master_id =org_app,
@@ -171,6 +184,8 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
                 temp_product_data = TempAppProducts.objects.filter(app_master_id=temp_app,
                                                                   product_category_id=category_data.id,
                                                                   is_active=True)
+                print('org_category::',org_category)
+                print('temp_product_data::',temp_product_data)
                 for product in temp_product_data:
                     pro_dict = {}
                     org_app_master_id=org_app
@@ -191,7 +206,7 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
             raise e
 
     def insert_users(self, temp_user_id:int, email:str, contact_no:int):
-        print('temp_user fgrfg::',temp_user_id)
+        # print('temp_user fgrfg::',temp_user_id)
         try:
             temp_user_data = TempUsers.objects.filter(id=temp_user_id)
             for user in temp_user_data:
@@ -209,6 +224,7 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
                     for details in user_details_data:
                         details.contact_no = contact_no
                         details.users_pic = user.owner_pic
+                        details.designation_id = user.owner_designation_id
                         details.save()
                 else:
                     insert_user = User.objects.create(first_name=str(user.owner_name),
@@ -222,6 +238,7 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
                     user_id = insert_user.id
                     UserDetails.objects.create(contact_no=contact_no,
                                                users_pic=user.owner_pic,
+                                               designation = user.owner_designation,
                                                user_id=user_id)
 
             return user_id, session_id

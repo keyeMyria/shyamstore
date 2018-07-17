@@ -24,8 +24,8 @@ class Customers(models.Model):
              "id":data.app_master.id,
              "business_name":data.app_master.business_name,
              "business_description": data.app_master.business_description,
-             "logo": data.app_master.logo.url,
-             "locality": data.app_master.locality,
+             "logo": data.app_master.logo.url if data.app_master.logo else "",
+             "locality": data.app_master.locality ,
              "category": data.app_master.category()
              })
         return app_master_list

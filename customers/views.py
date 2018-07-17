@@ -41,6 +41,10 @@ class MappingCustomerAndAppCreateView(CreateAPIView):
     queryset = CustomerAppMasterMapping.objects.all()
     serializer_class = CustomerAppMasterMappingSerializer
 
-class CustomerDashbordReadView(ListAPIView):
+class CustomerDashbordReadView(RetrieveAPIView):
     queryset = Customers.objects.all()
     serializer_class = CustomerAppDetailsSerializer
+    def get_queryset(self):
+        customer_id = self.kwargs['pk']
+        query_set = Customers.objects.filter(is_active=True,pk=customer_id)
+        return query_set

@@ -29,8 +29,7 @@ class UserDetails(models.Model):
     pincode = models.CharField(max_length=10, blank=True,null=True)
     current_status = models.BooleanField(default=True)
     login_by_IP = models.CharField(max_length=20, blank=True,null=True)
-    # designation = models.ForeignKey(Designations, on_delete=models.SET_NULL, blank=True,null=True)
-    designation = models.CharField(max_length=255, blank=True,null=True)
+    designation = models.ForeignKey(Designations, on_delete=models.CASCADE,blank=True, null=True)
     role = models.ForeignKey(Roles, on_delete=models.SET_NULL, blank=True,null=True)
     wellcome_msg = models.TextField(blank=True,null=True)
     is_active = models.BooleanField(default=True)
@@ -49,6 +48,11 @@ class UserDetails(models.Model):
                          "logo":app.logo.url}
             app_details.append(data_dict)
         return app_details
+
+    def first_name(self):
+        return self.user.first_name
+    # def business_est_year(self):
+    #     return self.app_details
 
 
 

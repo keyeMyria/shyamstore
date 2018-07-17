@@ -16,5 +16,8 @@ urlpatterns = [
     path('most_viewed_app/',views.MostViewedAppReadView.as_view()),
     path('search_app/',views.SearchAppReadView.as_view()),
     path('update_usiness_url/<pk>/',views.UpdateBusinessUrlView.as_view()),
+    path('app_all_details/<pk>/',views.AppAllDetailsByIdReadView.as_view()),
+    path('insert_org_app_url/<pk>/',views.EditBusinessUrlView.as_view()),
+
 
 ]

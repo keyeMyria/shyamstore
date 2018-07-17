@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'shyamstore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shyam_future_store',
+        'NAME': 'future_store',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

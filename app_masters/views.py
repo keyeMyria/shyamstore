@@ -64,7 +64,12 @@ class SearchAppReadView(ListAPIView):
     filter_backends = (filters.SearchFilter,)
     search_fields = ('locality','business_name')
     def get_queryset(self):
+        queryset = AppMasters.objects.filter(is_active=True)
         category = self.request.query_params.get('category', None)
+        latitude = self.request.query_params.get('latitude', None)
+        longitude = self.request.query_params.get('longitude', None)
+        if latitude and longitude:
+            print("latitude:{} and longitude:{}".format(latitude,longitude))
         if category:
             if category.find(",") > 0:
                 category_ids = category.split(",")
@@ -75,12 +80,24 @@ class SearchAppReadView(ListAPIView):
             category_mapping_data = AppCategoryMapings.objects.filter(app_category__in=category_ids)
             app_master_ids = [data.appmaster_id for data in category_mapping_data]
             queryset = AppMasters.objects.filter(id__in = app_master_ids,is_active = True)
-        else:
-            queryset = AppMasters.objects.filter(is_active = True)
+
+
 
         return queryset
 
 class UpdateBusinessUrlView(RetrieveUpdateAPIView):
     queryset = AppMasters.objects.all()
     serializer_class = UpdateBusinessUrlSerializer
+
+
+class AppAllDetailsByIdReadView(RetrieveAPIView):
+    queryset = AppMasters.objects.all()
+    serializer_class = AppAllDetailsSerializer
+
+class EditBusinessUrlView(RetrieveUpdateAPIView):
+    queryset = AppMasters.objects.all()
+    serializer_class = EditBusinessUrlSerializer
+
+
+
 

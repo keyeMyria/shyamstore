@@ -5,6 +5,7 @@ from app_category.models import *
 from users.serializers import *
 from app_category.serializers import *
 import datetime
+from app_products.serializers import *
 
 
 class CoverImgUploadSerializer(ModelSerializer):
@@ -18,6 +19,7 @@ class OrgAppCategoryMapingSerializer(ModelSerializer):
     class Meta:
         model = AppCategoryMapings
         fields =['id','appmaster','app_category']
+
 
 
 class OrgAppMastersSerializer(ModelSerializer):
@@ -59,7 +61,7 @@ class AddAppMasterImagesSerializer(ModelSerializer):
 
 
 class UpdateStep1OrgAppMastersSerializer(ModelSerializer):
-    logo = serializers.ImageField(max_length=None, use_url='logo') #define the type of field
+    logo = serializers.ImageField(max_length=None, use_url='logo',required=False) #define the type of field
     user_id = serializers.IntegerField() #define the type of field
     app_master_images = AddAppMasterImagesSerializer(many=True) # add the serializer for the foreignkey model
     #print('app_master_images::',app_master_images)
@@ -108,3 +110,16 @@ class UpdateBusinessUrlSerializer(ModelSerializer):
         model = AppMasters
         fields =['id','app_url']
 
+class AppAllDetailsSerializer(ModelSerializer):
+    user = UserSerializer()
+    app_product_categories =AppProductCategorySerializer(many=True)
+    # app_images = AddAppMasterImagesSerializer(many=True)
+    class Meta:
+        model = AppMasters
+        fields =['id','business_name','business_description','business_est_year','logo','category','user','app_product_categories', 'app_imgs']
+
+
+class EditBusinessUrlSerializer(ModelSerializer):
+    class Meta:
+        model = AppMasters
+        fields =['id','app_url']

@@ -44,4 +44,5 @@ class CustomerAppDetailsSerializer(ModelSerializer):
 
     class Meta:
         model = Customers
-        fields = ['id','customer_name','email','contact_no','app_master']
+        # fields = ['id','customer_name','email','contact_no','app_master']
+        fields = ['app_master']

@@ -48,6 +48,21 @@ class AppMasters(models.Model):
         for data in app_category_data:
             category_dict['category'] = data.app_category.category_name
         return category_dict['category']
+    def app_imgs(self):
+        app_img_list =[]
+        get_img_data = AppImgages.objects.filter(appmaster_id=self.id)
+        for data in get_img_data:
+            app_img_list.append({'id':data.id,'app_master_id':data.appmaster.id, 'app_img':data.app_images.url})
+        return app_img_list
+
+
+
+
+
+
+
+
+
 
 
 class AppCategoryMapings(models.Model):

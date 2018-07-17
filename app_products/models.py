@@ -4,7 +4,7 @@ from app_masters.models import *
 # Create your models here.
 
 class AppProductCategories(models.Model):
-    app_master = models.ForeignKey(AppMasters, on_delete=models.CASCADE)
+    app_master = models.ForeignKey(AppMasters, on_delete=models.CASCADE,related_name="app_product_categories")
     category_name = models.CharField(max_length=255, blank=True,null=True)
     description = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
@@ -12,7 +12,23 @@ class AppProductCategories(models.Model):
 
     def __str__(self):
         return str(self.id)
-
+    def products(self):
+        products_list = []
+        data_dict = {}
+        product_details = AppProducts.objects.filter(product_category_id=self.id,is_active=True)
+        for data in product_details:
+            data_dict['id'] = data.id
+            data_dict['app_master'] = data.app_master_id
+            data_dict['product_name'] = data.product_name
+            data_dict['description'] = data.description
+            data_dict['product_code'] = data.product_code
+            data_dict['price'] = data.price
+            data_dict['discounted_price'] = data.discounted_price
+            data_dict['tags'] = data.tags
+            data_dict['packing_charges'] = data.packing_charges
+            data_dict['hide_org_price_status'] = data.hide_org_price_status
+            products_list.append(data_dict)
+        return products_list
 
 class AppProducts(models.Model):
     STATUS_CHOICES = (
