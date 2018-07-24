@@ -45,7 +45,7 @@ class UserDetails(models.Model):
             data_dict = {"id":app.id,
                          "app_name":app.business_name,
                          "app_description":app.business_description,
-                         "logo":app.logo.url}
+                         "logo":app.logo.url if app.logo else ""}
             app_details.append(data_dict)
         return app_details
 

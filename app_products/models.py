@@ -14,9 +14,9 @@ class AppProductCategories(models.Model):
         return str(self.id)
     def products(self):
         products_list = []
-        data_dict = {}
         product_details = AppProducts.objects.filter(product_category_id=self.id,is_active=True)
         for data in product_details:
+            data_dict = {}
             data_dict['id'] = data.id
             data_dict['app_master'] = data.app_master_id
             data_dict['product_name'] = data.product_name

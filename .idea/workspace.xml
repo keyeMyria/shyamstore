@@ -2,79 +2,92 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db76a9c8-9c61-4622-97c0-3a542e52b8fc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0002_auto_20180629_1506.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0003_appmasters_business_description.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0004_auto_20180704_1913.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0005_appimgages.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0006_auto_20180706_1458.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0007_appmasters_app_url.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0008_appmasters_paid.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0009_appcategorymapings_is_deleted.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0010_remove_appcategorymapings_is_deleted.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0011_appmasters_visiting_count.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0012_appmasters_business_est_year.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0013_auto_20180713_1635.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0014_auto_20180713_1638.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app_masters/migrations/0015_auto_20180714_1041.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/customers/migrations/0002_auto_20180710_1554.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/customers/migrations/0003_auto_20180710_1559.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/customers/migrations/0004_auto_20180710_1654.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/customers/migrations/0005_auto_20180710_1655.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/customers/migrations/0006_auto_20180711_1333.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/customers/migrations/0007_auto_20180713_1325.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/customers/migrations/0008_customerappmastermapping_is_active.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shyamstore/__pycache__/__init__.cpython-36.pyc.54496336" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0002_auto_20180630_1147.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0003_auto_20180630_1449.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0004_auto_20180702_1105.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0005_tempusers.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0006_auto_20180702_1303.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0007_tempimgs.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0008_auto_20180702_1603.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0009_tempappimgs_app_images.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0010_auto_20180704_1226.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0011_auto_20180704_1239.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0012_auto_20180704_1258.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0013_auto_20180704_1306.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0014_auto_20180704_1448.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0015_auto_20180704_1523.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0016_auto_20180706_1141.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0017_tempappmasters_app_url.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0018_auto_20180706_1740.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0019_auto_20180706_1808.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0020_auto_20180706_1820.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0021_auto_20180709_1140.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0022_auto_20180709_1253.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0023_auto_20180709_1311.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0024_tempappcategorymapings_is_deleted.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0025_remove_tempappcategorymapings_is_deleted.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_app/migrations/0026_auto_20180711_1449.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/users/migrations/0002_userdetails_users_pic.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/users/migrations/0003_auto_20180704_1911.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/users/migrations/0004_auto_20180713_1051.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/customers/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/Chase-Mobile-app-logo-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/Chase-Mobile-app-logo-icon_6Abmkkw.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/Invoice_list_screenshot.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/Invoice_list_screenshot_3xhxF23.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/Invoice_list_screenshot_X528kgz.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/Invoice_list_screenshot_jJ7wP3Y.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/Invoice_list_screenshot_p8BnhnZ.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/Invoice_list_screenshot_vggycTm.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/MOBILE-APP-ICON-GREEN_300x300.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/MOBILE-APP-ICON-GREEN_300x300_48nzBBy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/MOBILE-APP-ICON-GREEN_300x300_7WdURly.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/MOBILE-APP-ICON-GREEN_300x300_WqkWsIU.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/MOBILE-APP-ICON-GREEN_300x300_eKucZle.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/MOBILE-APP-ICON-GREEN_300x300_pZhquNe.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/MOBILE-APP-ICON-GREEN_300x300_t6cnrO5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/MOBILE-APP-ICON-GREEN_300x300_tYQHK2N.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-1_8ZShOw2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-1_GtTBJ75.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-1_OcZZ8Yr.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-1_RzmJfe4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-1_qzBrH2r.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-2_XvyBuxc.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-2_gKLbTdu.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-2_oMLRjyg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-2_rD7MUQp.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-3_URiPfy2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/about-slider-img-3_uosvElf.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/air.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_2g073JG.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_7Z9Ud8d.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_Dd46VSP.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_DqCRK6t.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_JFPd4uc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_S4sAEnG.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_Xskko5O.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_dNnhVdd.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_dQWfJYu.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_eyxLrEs.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_j9SYaKC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_jFEgmGv.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/b465c8e4-ded0-4b91-a428-ea47276b73bc_yJluoUa.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/bride1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/hulk.jfif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/hulk_cXr92uP.jfif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/importpythonodbc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/importpythonodbc_IXr1QL1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/importpythonodbc_QZo0WMo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/importpythonodbc_c0zVnxR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_4pN3fFi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_MXOirrZ.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_Oi7O25U.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_QJPZY45.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_T4BRUss.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_TDX78Bb.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_XQRZfKF.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_g5505A2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_hMJPAUC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_ilnl604.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_ndrysvM.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_ugcwian.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/app_images/tech-02-acorns_xjV9ZpP.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/hulk_JALYpSF.jfif" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_category/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/app_category/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_masters/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/app_masters/migrations/0001_initial.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_masters/models.py" afterPath="$PROJECT_DIR$/app_masters/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_masters/serializers.py" afterPath="$PROJECT_DIR$/app_masters/serializers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_masters/urls.py" afterPath="$PROJECT_DIR$/app_masters/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_masters/views.py" afterPath="$PROJECT_DIR$/app_masters/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_products/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/app_products/migrations/0001_initial.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_products/models.py" afterPath="$PROJECT_DIR$/app_products/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_products/serializers.py" afterPath="$PROJECT_DIR$/app_products/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customers/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/customers/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_products/urls.py" afterPath="$PROJECT_DIR$/app_products/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_products/views.py" afterPath="$PROJECT_DIR$/app_products/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customers/admin.py" afterPath="$PROJECT_DIR$/customers/admin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customers/models.py" afterPath="$PROJECT_DIR$/customers/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customers/serializers.py" afterPath="$PROJECT_DIR$/customers/serializers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customers/urls.py" afterPath="$PROJECT_DIR$/customers/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customers/views.py" afterPath="$PROJECT_DIR$/customers/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shyamstore/settings.py" afterPath="$PROJECT_DIR$/shyamstore/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/states/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/states/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp_app/models.py" afterPath="$PROJECT_DIR$/temp_app/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp_app/serializers.py" afterPath="$PROJECT_DIR$/temp_app/serializers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shyamstore/urls.py" afterPath="$PROJECT_DIR$/shyamstore/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users/models.py" afterPath="$PROJECT_DIR$/users/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users/serializers.py" afterPath="$PROJECT_DIR$/users/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users/urls.py" afterPath="$PROJECT_DIR$/users/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users/views.py" afterPath="$PROJECT_DIR$/users/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,6 +97,15 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
@@ -92,45 +114,70 @@
     <favorites_list name="shyamstore" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app_masters/urls.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_products/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+            <state relative-caret-position="85">
+              <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="27" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app_masters/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="98" column="48" lean-forward="false" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app_masters/serializers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="124" column="30" lean-forward="false" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-                <element signature="e#3475#3714#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app_masters/models.py">
+        <entry file="file://$PROJECT_DIR$/app_messenger/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="39" column="11" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="11" />
+            <state relative-caret-position="255">
+              <caret line="15" column="15" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Projects/erp_tribeni/purchase_order/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-112">
+              <caret line="46" column="79" lean-forward="false" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="79" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app_messenger/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_messenger/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_messenger/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -138,19 +185,15 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>MaterialTypeSerializer</find>
-      <find>MultipleUploadTempAppImgs</find>
-      <find>ProjectSpecificMaterialList</find>
-      <find>MaterialReadSerializer</find>
-      <find>vendor_address_data</find>
-      <find>password</find>
-      <find>TempAppMastersSerializer</find>
-      <find>TempAppMasterDetailsByIDView</find>
-      <find>TempAppCategoryMapingSerializer</find>
-      <find>UpdateTempAppCategoryMapingsSerializer</find>
-      <find>VendorMatserUpdate</find>
       <find>VendorSerializer</find>
       <find>del_ids</find>
       <find>insert_users</find>
@@ -170,6 +213,17 @@
       <find>designation_</find>
       <find>designation</find>
       <find>insert_product_and_category</find>
+      <find>BASE_DIR</find>
+      <find>filter_backends</find>
+      <find>order_details</find>
+      <find>CustomerOrderDetailsView</find>
+      <find>OrdersSerializer</find>
+      <find>UserSerializer</find>
+      <find>UsersDetailsSerializer</find>
+      <find>UserDetailsSerializer(ModelSerializer):</find>
+      <find>UseAppCustomerMapping</find>
+      <find>app_products_category_details</find>
+      <find>CurrentUserDefault</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -181,9 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/manage.py" />
-        <option value="$PROJECT_DIR$/states/models.py" />
-        <option value="$PROJECT_DIR$/states/admin.py" />
         <option value="$PROJECT_DIR$/users/admin.py" />
         <option value="D:/Data/Desktop/OdbcConnectur.py" />
         <option value="$PROJECT_DIR$/app_category/admin.py" />
@@ -199,26 +250,42 @@
         <option value="$PROJECT_DIR$/temp_app/urls.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/django/contrib/auth/models.py" />
         <option value="$PROJECT_DIR$/temp_app/views.py" />
-        <option value="$PROJECT_DIR$/app_products/urls.py" />
-        <option value="$PROJECT_DIR$/shyamstore/urls.py" />
-        <option value="$PROJECT_DIR$/app_products/views.py" />
-        <option value="$PROJECT_DIR$/customers/serializers.py" />
-        <option value="$PROJECT_DIR$/customers/views.py" />
-        <option value="$PROJECT_DIR$/customers/models.py" />
-        <option value="$PROJECT_DIR$/users/views.py" />
         <option value="$PROJECT_DIR$/users/urls.py" />
-        <option value="$PROJECT_DIR$/customers/urls.py" />
-        <option value="$PROJECT_DIR$/app_products/serializers.py" />
-        <option value="$PROJECT_DIR$/app_products/models.py" />
-        <option value="$PROJECT_DIR$/shyamstore/settings.py" />
-        <option value="$PROJECT_DIR$/users/models.py" />
         <option value="$PROJECT_DIR$/temp_app/models.py" />
-        <option value="$PROJECT_DIR$/users/serializers.py" />
         <option value="$PROJECT_DIR$/temp_app/serializers.py" />
         <option value="$PROJECT_DIR$/app_masters/models.py" />
+        <option value="$PROJECT_DIR$/app_payment/admin.py" />
         <option value="$PROJECT_DIR$/app_masters/urls.py" />
         <option value="$PROJECT_DIR$/app_masters/views.py" />
+        <option value="$PROJECT_DIR$/app_payment/models.py" />
+        <option value="$PROJECT_DIR$/users/views.py" />
+        <option value="$PROJECT_DIR$/uom/admin.py" />
+        <option value="$PROJECT_DIR$/app_products/models.py" />
+        <option value="$PROJECT_DIR$/orders/models.py" />
+        <option value="$PROJECT_DIR$/customers/urls.py" />
+        <option value="$PROJECT_DIR$/users/models.py" />
+        <option value="$PROJECT_DIR$/users/serializers.py" />
+        <option value="$PROJECT_DIR$/customers/admin.py" />
+        <option value="$PROJECT_DIR$/customers/serializers.py" />
+        <option value="$PROJECT_DIR$/orders/serializers.py" />
+        <option value="$PROJECT_DIR$/orders/views.py" />
+        <option value="$PROJECT_DIR$/chat/models.py" />
+        <option value="$PROJECT_DIR$/customers/models.py" />
+        <option value="$PROJECT_DIR$/chat/urls.py" />
+        <option value="$PROJECT_DIR$/chat/views.py" />
+        <option value="$PROJECT_DIR$/customers/views.py" />
+        <option value="$PROJECT_DIR$/app_products/serializers.py" />
+        <option value="$PROJECT_DIR$/chat_pusher.py" />
         <option value="$PROJECT_DIR$/app_masters/serializers.py" />
+        <option value="$PROJECT_DIR$/orders/urls.py" />
+        <option value="$PROJECT_DIR$/shyamstore/settings.py" />
+        <option value="$PROJECT_DIR$/shyamstore/urls.py" />
+        <option value="$PROJECT_DIR$/app_messenger/views.py" />
+        <option value="$PROJECT_DIR$/app_messenger/urls.py" />
+        <option value="$PROJECT_DIR$/app_messenger/models.py" />
+        <option value="$PROJECT_DIR$/app_products/views.py" />
+        <option value="$PROJECT_DIR$/app_products/urls.py" />
+        <option value="$PROJECT_DIR$/app_messenger/serializers.py" />
       </list>
     </option>
   </component>
@@ -230,7 +297,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1370" />
+    <option name="y" value="-8" />
+    <option name="width" value="1378" />
     <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -249,7 +317,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -272,19 +340,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app_masters" />
+              <option name="myItemId" value="app_products" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Chatire" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -511,21 +580,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1370" height="754" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1378" height="754" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14254062" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23444612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2721417" sideWeight="0.5060698" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32298136" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2721417" sideWeight="0.4939302" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -543,152 +611,131 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app_masters/serializers.py</url>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="12" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/erp_tribeni/vendor/urls.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/django/contrib/auth/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3567">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/mongo_conn/customer/urls.py" />
-    <entry file="file://$USER_HOME$/mongo_conn/customer/views.py" />
-    <entry file="file://$PROJECT_DIR$/app_category/models.py">
+    <entry file="file://$PROJECT_DIR$/uom/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="17" />
+          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_category/views.py">
+    <entry file="file://$PROJECT_DIR$/uom/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        <state relative-caret-position="17">
+          <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_category/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/app_images/about-slider-img-3.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/app_images/about-slider-img-2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/app_images/about-slider-img-1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/erp_tribeni/vendor/views.py" />
-    <entry file="file://$USER_HOME$/erp_tribeni/vendor/serializers.py" />
-    <entry file="file://$USER_HOME$/erp_tribeni/purchase_requisition/models.py" />
-    <entry file="file://$PROJECT_DIR$/states/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/live_settings/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/live_settings/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="98" column="26" lean-forward="false" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/settings.py" />
-    <entry file="file://$PROJECT_DIR$/temp_app/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/django/db/models/manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Projects/erp_tribeni/vendor/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="13" column="56" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/rest_framework/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="111" column="8" lean-forward="false" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Projects/erp_tribeni/authentication/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-714">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_category/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Projects/erp_tribeni/states/urls.py">
+    <entry file="file://$PROJECT_DIR$/uom/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Projects/erp_tribeni/vendor/serializers.py">
+    <entry file="file://$PROJECT_DIR$/app_masters/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="151" column="0" lean-forward="false" selection-start-line="141" selection-start-column="4" selection-end-line="151" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Projects/erp_tribeni/vendor/views.py">
+    <entry file="file://$PROJECT_DIR$/app_masters/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="79" column="70" lean-forward="true" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="70" />
+        <state relative-caret-position="274">
+          <caret line="44" column="23" lean-forward="false" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+          <folding>
+            <element signature="e#2015#2269#0" expanded="false" />
+            <element signature="e#2302#2564#0" expanded="false" />
+            <element signature="e#2612#2962#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/admin.py">
+    <entry file="file://$PROJECT_DIR$/orders/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Projects/sendmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/django/contrib/auth/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="355" column="6" lean-forward="false" selection-start-line="355" selection-start-column="6" selection-end-line="355" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="47" column="64" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="99" column="34" lean-forward="false" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customers/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customers/migrations/0001_initial.py" />
+    <entry file="file://$PROJECT_DIR$/customers/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="30" column="37" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -697,198 +744,275 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/customers/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="26" column="77" lean-forward="false" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
+        <state relative-caret-position="288">
+          <caret line="52" column="15" lean-forward="true" selection-start-line="51" selection-start-column="6" selection-end-line="52" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/customers/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        <state relative-caret-position="-418">
+          <caret line="58" column="6" lean-forward="false" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/django/contrib/auth/models.py">
+    <entry file="file://$PROJECT_DIR$/users/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="355" column="6" lean-forward="false" selection-start-line="355" selection-start-column="6" selection-end-line="355" selection-end-column="6" />
+        <state relative-caret-position="68">
+          <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/customers/views.py">
+    <entry file="file://$PROJECT_DIR$/app_category/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="43" column="6" lean-forward="false" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_payment/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/temp_app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="58" lean-forward="false" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/customers/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="34" />
+        <state relative-caret-position="85">
+          <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shyamstore/urls.py">
+    <entry file="file://$PROJECT_DIR$/customers/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+        <state relative-caret-position="255">
+          <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Projects/erp_tribeni/company_project/models.py">
+    <entry file="file://$PROJECT_DIR$/app_products/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
+        <state relative-caret-position="357">
+          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="20" />
+          <folding>
+            <element signature="e#568#1379#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat_pusher.py" />
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shyamstore/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/temp_app/models.py">
+    <entry file="file://$PROJECT_DIR$/chat/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="140" column="103" lean-forward="false" selection-start-line="140" selection-start-column="103" selection-end-line="140" selection-end-column="103" />
+        <state relative-caret-position="102">
+          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_masters/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="58" lean-forward="false" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_masters/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="97" column="41" lean-forward="true" selection-start-line="97" selection-start-column="41" selection-end-line="97" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Chatire/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Chatire/websocket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="48" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_masters/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="141" column="23" lean-forward="false" selection-start-line="141" selection-start-column="23" selection-end-line="141" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+            <element signature="e#766#1017#0" expanded="false" />
+            <element signature="e#1079#1729#0" expanded="false" />
+            <element signature="e#1792#1884#0" expanded="false" />
+            <element signature="e#1943#2118#0" expanded="false" />
+            <element signature="e#2184#3414#0" expanded="false" />
+            <element signature="e#2708#3414#0" expanded="false" />
+            <element signature="e#3475#3714#0" expanded="false" />
+            <element signature="e#3772#3995#0" expanded="false" />
+            <element signature="e#4053#4124#0" expanded="false" />
+            <element signature="e#4178#4570#0" expanded="false" />
+            <element signature="e#4627#4698#0" expanded="false" />
+            <element signature="e#4749#4917#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_masters/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_masters/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
           <folding>
             <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/models.py">
+    <entry file="file://$PROJECT_DIR$/shyamstore/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="31" column="97" lean-forward="false" selection-start-line="31" selection-start-column="97" selection-end-line="31" selection-end-column="97" />
+        <state relative-caret-position="254">
+          <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/views.py">
+    <entry file="file://$PROJECT_DIR$/shyamstore/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="45" column="30" lean-forward="true" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+        <state relative-caret-position="341">
+          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/serializers.py">
+    <entry file="file://$PROJECT_DIR$/app_products/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="71" column="37" lean-forward="false" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
+        <state relative-caret-position="237">
+          <caret line="154" column="38" lean-forward="false" selection-start-line="154" selection-start-column="38" selection-end-line="154" selection-end-column="38" />
           <folding>
-            <element signature="e#2570#2771#0" expanded="false" />
+            <element signature="e#237#2746#0" expanded="false" />
+            <element signature="e#2794#6082#0" expanded="false" />
+            <element signature="e#6296#6402#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app_products/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_products/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
+        <state relative-caret-position="-61">
           <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp_app/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="157" column="90" lean-forward="false" selection-start-line="157" selection-start-column="90" selection-end-line="157" selection-end-column="90" />
           <folding>
-            <element signature="e#7315#9477#0" expanded="false" />
-            <element signature="e#9560#11576#0" expanded="false" />
+            <element signature="e#381#1201#0" expanded="false" />
+            <element signature="e#1262#1468#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/temp_app/views.py">
+    <entry file="file://$USER_HOME$/Projects/erp_tribeni/purchase_order/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="116" column="41" lean-forward="true" selection-start-line="116" selection-start-column="41" selection-end-line="116" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp_app/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        <state relative-caret-position="-112">
+          <caret line="46" column="79" lean-forward="false" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="79" />
           <folding>
-            <element signature="e#148#1915#0" expanded="false" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_products/views.py">
+    <entry file="file://$PROJECT_DIR$/app_messenger/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        <state relative-caret-position="102">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_messenger/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_messenger/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="15" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app_products/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="64" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="34" />
+          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_masters/views.py">
+    <entry file="file://$PROJECT_DIR$/app_messenger/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="98" column="48" lean-forward="false" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_masters/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="39" column="11" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_masters/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="124" column="30" lean-forward="false" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+        <state relative-caret-position="289">
+          <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
-            <element signature="e#3475#3714#0" expanded="false" />
+            <element signature="e#0#54#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_masters/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>

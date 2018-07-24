@@ -57,14 +57,6 @@ class AppMasters(models.Model):
 
 
 
-
-
-
-
-
-
-
-
 class AppCategoryMapings(models.Model):
     STATUS_CHOICES = (
         ('1', 'is_primary'),

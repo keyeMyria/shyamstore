@@ -18,6 +18,9 @@ urlpatterns = [
     path('update_usiness_url/<pk>/',views.UpdateBusinessUrlView.as_view()),
     path('app_all_details/<pk>/',views.AppAllDetailsByIdReadView.as_view()),
     path('insert_org_app_url/<pk>/',views.EditBusinessUrlView.as_view()),
+    path('upload_multiple_imgs/',views.MultipleImgUploadView.as_view()),
+    path('edit_applogo_&_appname/<pk>/',views.EditAppLogoAndNameView.as_view()),
+    path('delete_app_image/<pk>/',views.DeleteAppImageDelView.as_view()),
 
 
 ]

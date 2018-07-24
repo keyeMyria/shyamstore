@@ -7,4 +7,6 @@ urlpatterns = [
     path('customer_login/', LoginCustomerView.as_view()),
     path('mapping_app_and_customer/', MappingCustomerAndAppCreateView.as_view()),
     path('customer_dashbord/<pk>/', CustomerDashbordReadView.as_view()),
+    path('customer_order_details/<pk>/', CustomerOrderDetailsView.as_view()),
+    path('add_customer_by_appowner/', AddCustomerByAppOwnerView.as_view()),
 ]

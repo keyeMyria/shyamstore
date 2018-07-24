@@ -59,19 +59,19 @@ class AppProductCategoriesEditView(UpdateAPIView):
 class AppProductsEditView(UpdateAPIView):
     def update(self, request, *args, **kwargs):
         appmaster_id = self.kwargs['appmaster_id']
-        # print("appmaster_id:", appmaster_id)
+
         exiest_ids = []
         for data in request.data["products"]:
-            # print('data["product_category"]:',data["product_category"])
+
             get_datas = AppProducts.objects.filter(app_master_id=appmaster_id,
                                                        product_category_id=data["product_category"],
                                                        is_active = True)
-            # print('get_datas::', get_datas.query)
+
             for ids in get_datas:
                 exiest_ids.append(ids.id)
         upd_ids =[]
         del_ids =[]
-        # print('exiest_ids::', exiest_ids)
+        print('exiest_ids::', exiest_ids)
         if exiest_ids:
             for product in request.data["products"]:
                 if product["id"]:
@@ -124,4 +124,36 @@ class AppProductsEditView(UpdateAPIView):
 
 
         return Response({"products": data_list})
+        # return Response(request.data)
+
+class EditAppProductsView(RetrieveUpdateAPIView):
+    queryset = AppProducts.objects.filter(is_active = True)
+    serializer_class = AppProductsSerializer
+
+class DeleteAppProductsView(RetrieveUpdateAPIView):
+    queryset = AppProducts.objects.filter(is_active = True)
+    serializer_class = DeleteAppProductsSerializer
+
+class AddAppProductCreateView(ListCreateAPIView):
+    queryset = AppProducts.objects.filter(is_active=True)
+    serializer_class = AppProductsSerializer
+
+class AppProductCategoriesCreateView(ListCreateAPIView):
+    queryset = AppProductCategories.objects.all()
+    serializer_class = ProductCategorySerializer
+
+class AppProductCategoriesEditView(RetrieveUpdateAPIView):
+    queryset = AppProductCategories.objects.all()
+    serializer_class = ProductCategorySerializer
+
+class AppProductCategoriesDeleteView(RetrieveUpdateAPIView):
+    queryset = AppProductCategories.objects.all()
+    serializer_class = ProductCategoryDeleteSerializer
+
+class AppProductAndCategoriesReadView(RetrieveAPIView):
+    queryset = AppProductCategories.objects.all()
+    serializer_class = AppProductCategorySerializer
+
+
+
 

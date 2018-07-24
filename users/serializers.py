@@ -23,28 +23,6 @@ class UsersDetailsSerializer(ModelSerializer):
     class Meta:
         model = UserDetails
         fields =['id','users_pic']
-        # fields =['id','users_pic','designation']
-
-# class UserAllDetailsSerializer(ModelSerializer):
-#     user_details = UsersDetailsSerializer()
-#     class Meta:
-#         model = User
-#         fields = ['id','username','first_name','email','user_details']
-#
-#
-#
-# class UsersSerializer(ModelSerializer):
-#     # user_details = UsersDetailsSerializer(many=True)
-#     class Meta:
-#         model = User
-#         fields =['id','username']
-#
-#     def create(self, validated_data):
-#         user_username = validated_data.get("username")
-#         # user_users_pic = validated_data.get("users_pic")
-#         print('user_username::', user_username)
-#         return True
-
 
 
 
@@ -84,11 +62,17 @@ class EditStepTowOwnerDetailsSerializer(ModelSerializer):
                 'users_pic':pic,
                 'app_master_id':app_id}
 
+class DesignationReadSerializer(ModelSerializer):
+
+    class Meta:
+        model = Designations
+        fields=["id","designation_name","status"]
 
 class UserDetailsAndAppDetailsSerializer(ModelSerializer):
+    designation = DesignationReadSerializer()
     class Meta:
         model = UserDetails
-        fields = ['id','users_pic','contact_no','app_details']
+        fields = ['id','users_pic','contact_no','address','designation','app_details']
 
 
 class UsersAppDetailsSerializer(ModelSerializer):
@@ -97,11 +81,7 @@ class UsersAppDetailsSerializer(ModelSerializer):
         model = User
         fields=["id","first_name","last_name","email","user_details"]
 
-class DesignationReadSerializer(ModelSerializer):
 
-    class Meta:
-        model = Designations
-        fields=["id","designation_name","status"]
 
 
 class EditStep2UserDetailsSerializer(ModelSerializer):
@@ -109,5 +89,20 @@ class EditStep2UserDetailsSerializer(ModelSerializer):
     class Meta:
         model = UserDetails
         fields=['id','first_name','designation','users_pic']
+
+
+class UserDetailsSerializer(ModelSerializer):
+    designation = DesignationReadSerializer()
+    class Meta:
+        model = UserDetails
+        fields = ['id', 'users_pic', 'contact_no', 'address', 'designation']
+
+class UserAndUserDetailsSerializer(ModelSerializer):
+    user_details = UserDetailsSerializer(many=True)
+
+    class Meta:
+        model = User
+        fields = ["id", "first_name", "last_name", "email", "user_details"]
+
 
 

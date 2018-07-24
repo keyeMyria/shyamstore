@@ -21,13 +21,16 @@ class CustomObtainAuthToken(ObtainAuthToken):
         token=Token.objects.get(key=response.data['token'])
         user=User.objects.get(id=token.user_id)
         serializer=UserLoginSerializer(user,many=True)
+        user_details = UserDetails.objects.filter(user_id=user.id)
+        contact_no = [data.contact_no for data in user_details]
 
         if user:
             data_dict = {
                 'token': token.key,
                 'user_id': user.pk,
                 'username':user.username,
-                'email': user.email
+                'email': user.email,
+                'contact_no':contact_no[0] if contact_no else ''
             }
             if user.is_staff:
                 data_dict['user_role']="staff"

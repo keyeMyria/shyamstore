@@ -1,17 +1,18 @@
 from django.db import models
 from states.models import *
 from app_masters.models import *
+from django.contrib.auth.models import *
 
 class Customers(models.Model):
     customer_name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
     last_login = models.DateTimeField(blank=True, null=True)
-    contact_no = models.CharField(max_length=15,unique=True,default=None, blank=True, null=True)
+    contact_no = models.CharField(max_length=15,default=None, blank=True, null=True)
     password = models.CharField(max_length=255)
 
-    class Meta:
-        unique_together = ('email', 'contact_no',)
+    # class Meta:
+    #     unique_together = ('email', 'contact_no',)
 
     def __str__(self):
         return str(self.customer_name)
@@ -44,9 +45,17 @@ class CustomerAddress(models.Model):
 class CustomerAppMasterMapping(models.Model):
     customer = models.ForeignKey(Customers, on_delete=models.CASCADE,related_name="customer")
     app_master = models.ForeignKey(AppMasters,on_delete=models.CASCADE,related_name="app_master")
+    referred_by = models.ForeignKey(User,on_delete=models.CASCADE, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
+
+    # class Meta:
+    #     unique_together = ('app_master', 'customer',)
+
     def __str__(self):
         return str(self.id)
+
+
+
 
 

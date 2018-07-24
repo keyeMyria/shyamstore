@@ -111,15 +111,46 @@ class UpdateBusinessUrlSerializer(ModelSerializer):
         fields =['id','app_url']
 
 class AppAllDetailsSerializer(ModelSerializer):
-    user = UserSerializer()
-    app_product_categories =AppProductCategorySerializer(many=True)
+    # user = UserSerializer()
+    user = UserAndUserDetailsSerializer()
+    app_product_categories = AppProductCategorySerializer(many=True)
     # app_images = AddAppMasterImagesSerializer(many=True)
     class Meta:
         model = AppMasters
-        fields =['id','business_name','business_description','business_est_year','logo','category','user','app_product_categories', 'app_imgs']
+        fields =['id','business_name','business_description','business_est_year','logo','category','app_url','user','app_product_categories', 'app_imgs']
 
 
 class EditBusinessUrlSerializer(ModelSerializer):
     class Meta:
         model = AppMasters
         fields =['id','app_url']
+
+class AppImgagesSerializer(ModelSerializer):
+    app_images = serializers.ImageField(max_length=None, use_url='app_images')
+    class Meta:
+        model = AppImgages
+        fields = ['id', 'appmaster', 'app_images']
+
+
+
+class EditAppLogoAndNameSerializer(ModelSerializer):
+    class Meta:
+        model = AppMasters
+        fields =['id','logo', 'business_name','business_description']
+    def update(self, instance, validated_data):
+        import os
+        import datetime
+        try:
+            existing_logo ='./media/' +str(instance.logo)
+            instance.logo = validated_data.get('logo',instance.logo)
+            instance.business_name = validated_data.get('business_name', instance.business_name)
+            instance.business_description = validated_data.get('business_description',instance.business_description)
+            instance.modified_at = datetime.datetime.now()
+
+            instance.save()
+            # print(os.path.isfile(existing_logo))
+            if validated_data.get('logo') and os.path.isfile(existing_logo):
+                os.remove(existing_logo)
+        except Exception as e:
+            raise e
+        return instance
