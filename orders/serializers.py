@@ -94,3 +94,8 @@ class CancelOrderByProductIdSerializer(ModelSerializer):
             data.price = total_price
             data.save()
         return instance
+
+class AppOrdersCountSerializer(ModelSerializer):
+    class Meta:
+        model = Orders
+        fields = ['id','order_count']

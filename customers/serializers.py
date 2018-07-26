@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 from customers.models import *
 from django.db.models import Q
-from orders.serializers import OrdersSerializer
+from orders.serializers import OrdersSerializer,AppOrdersCountSerializer
 
 
 
@@ -106,7 +106,10 @@ class UseAppCustomerMappingSerializer(ModelSerializer):
         return data_dict
 
 
+
+
 class CustomerMappingSerializer(ModelSerializer):
+
     customer = CustomersRegistrationSerializer()
     class Meta:
         model = CustomerAppMasterMapping

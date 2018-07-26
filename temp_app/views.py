@@ -64,9 +64,12 @@ class BusinessLogoUploadAndStepOneView(RetrieveUpdateAPIView):
     serializer_class = BusinessLogoUploadAndStepOneSerializer
 
 
-class CreateTempUsersAndStepTwoView(CreateAPIView):
-    queryset = TempUsers.objects.all()
+class CreateTempUsersAndStepTwoView(ListCreateAPIView):
+    # queryset = TempUsers.objects.all()
     serializer_class = TempUsersAndStepTwoSerializer
+    def get_queryset(self):
+        session_id = self.kwargs['session']
+        return TempAppMasters.objects.filter(session_id=session_id)
 
 class TempUsersDetailView(ListAPIView):
     queryset = TempUsers.objects.all()

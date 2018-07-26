@@ -44,35 +44,69 @@ class TempAppMastersDetailsSerializer(ModelSerializer):
         fields =['id','session_id', 'app_category']
 
 class TempUsersAndStepTwoSerializer(ModelSerializer):
-    owner_designation = serializers.IntegerField()
+    # owner_designation = serializers.IntegerField()
+    # store_address = serializers.CharField(required=False)
+    # lat = serializers.CharField(required=False)
+    # long = serializers.CharField(required=False)
+    # business_est_year = serializers.IntegerField(required=False)
     class Meta:
-        model = TempUsers
-        fields =['id','owner_name','session_id','owner_designation','owner_pic']
+        model = TempAppMasters
+        fields =['id','owner_name','owner_designation','owner_pic','store_address','lat','long','business_est_year']
 
-    def create(self, validated_data):
-        session_id = validated_data.get("session_id")
-        owner_designation_id = validated_data.pop('owner_designation')
-        print('owner_designation_id::', owner_designation_id)
-        user_exiest = TempUsers.objects.filter(session_id = session_id)
-        if user_exiest:
-            for user in user_exiest:
-                user.owner_name = validated_data.get("owner_name",user.owner_name)
-                user.owner_designation_id = owner_designation_id
-                user.owner_pic = validated_data.get("owner_pic",user.owner_pic)
-                user.save()
-                user_id =user.id
-        else:
-            temp_user = TempUsers.objects.create(owner_designation_id = owner_designation_id,**validated_data)
-            user_id = temp_user.id
-        data_dict = {}
-        user_details = TempUsers.objects.filter(pk=user_id,session_id=session_id)
-        for user_data in user_details:
-            data_dict['id']=user_data.id
-            data_dict['owner_name']  =user_data.owner_name
-            data_dict['session_id']=user_data.session_id
-            data_dict['owner_designation']=user_data.owner_designation_id
-            data_dict['owner_pic']=user_data.owner_pic
-        return data_dict
+    def update(self, instance, validated_data):
+        instance.owner_name = validated_data.get('owner_name',instance.owner_name)
+        instance.owner_designation = validated_data.get('owner_designation',instance.owner_designation)
+        instance.owner_pic = validated_data.get('owner_pic',instance.owner_pic)
+        instance.store_address = validated_data.get('store_address',instance.store_address)
+        instance.lat = validated_data.get('lat',instance.lat)
+        instance.long = validated_data.get('long',instance.long)
+        instance.business_est_year = validated_data.get('business_est_year',instance.business_est_year)
+        instance.save()
+        return instance
+
+    # def create(self, validated_data):
+    #     session_id = validated_data.get("session_id")
+    #     owner_designation_id = validated_data.pop('owner_designation')
+    #     store_address = validated_data.pop('store_address')
+    #     lat = validated_data.pop('lat')
+    #     long = validated_data.pop('long')
+    #     business_est_year = validated_data.pop('business_est_year')
+    #     print('owner_designation_id::', owner_designation_id)
+    #     user_exiest = TempUsers.objects.filter(session_id = session_id)
+    #     if user_exiest:
+    #         for user in user_exiest:
+    #             user.owner_name = validated_data.get("owner_name",user.owner_name)
+    #             user.owner_designation_id = owner_designation_id
+    #             user.owner_pic = validated_data.get("owner_pic",user.owner_pic)
+    #             user.save()
+    #             user_id =user.id
+    #     else:
+    #         temp_user = TempUsers.objects.create(owner_designation_id = owner_designation_id,**validated_data)
+    #         user_id = temp_user.id
+    #     data_dict = {}
+    #     temp_app_details = TempAppMasters.objects.filter(session_id=session_id)
+    #     for app_data in temp_app_details:
+    #         app_data.store_address = store_address
+    #         app_data.lat = lat
+    #         app_data.long = long
+    #         app_data.business_est_year = business_est_year
+    #         app_data.save()
+    #         data_dict['store_address'] = app_data.store_address
+    #         data_dict['lat'] = app_data.lat
+    #         data_dict['long'] = app_data.long
+    #         data_dict['business_est_year'] = app_data.business_est_year
+    #
+    #
+    #
+    #     user_details = TempUsers.objects.filter(pk=user_id,session_id=session_id)
+    #     for user_data in user_details:
+    #         data_dict['id']=user_data.id
+    #         data_dict['owner_name']  =user_data.owner_name
+    #         data_dict['session_id']=user_data.session_id
+    #         data_dict['owner_designation']=user_data.owner_designation_id
+    #         data_dict['owner_pic']=user_data.owner_pic
+    #
+    #     return data_dict
 
 class TempAppImagesSerializer(ModelSerializer):
     app_images = serializers.ImageField(max_length=None, use_url='app_images')
@@ -132,6 +166,7 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
                                                   contact_no=validated_data.get("contact_no") )
             # print('user_id::',user_id)
             # print('session_id::',session_id)
+
             temp_app_data = TempAppMasters.objects.filter(session_id=session_id)[:1]
             print(temp_app_data)
             for app_data in temp_app_data:
@@ -244,6 +279,9 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
             return user_id, session_id
         except Exception as e:
             raise e
+
+    def insert_App_Master(self,session_id,user_id):
+        pass
 
 
 
