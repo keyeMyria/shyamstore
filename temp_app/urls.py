@@ -6,7 +6,7 @@ from temp_app import views
 urlpatterns = [
     path('create_app/', views.CreateTempAppMaster.as_view()),
     path('create_app_step_one/<pk>/', views.BusinessLogoUploadAndStepOneView.as_view()),
-    path('create_app_step_two/<session>/', views.CreateTempUsersAndStepTwoView.as_view()),
+    path('create_app_step_two/<pk>/', views.CreateTempUsersAndStepTwoView.as_view()),
     path('create_app_step_three/', views.MultipleUploadImgAndStepThreeView.as_view()),
     path('create_app_step_last/<pk>/', views.UserRegistrationAndStepLastView.as_view()),
     path('create_app_details/<appmaster_id>/', views.TempAppDetailsView.as_view()),

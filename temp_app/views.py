@@ -8,14 +8,8 @@ from PIL import Image
 
 class CreateTempAppMaster(CreateAPIView):
     queryset = TempAppMasters.objects.all()
-    # serializer_class = TempAppMastersSerializer
     serializer_class = TempAppMastersCreateSerializer
-    # def post(self, request, format=None):
-    #     app_category_id = request.data[0].pop('app_category')
-    #     temp_app_master = TempAppMasters.objects.create(**request.data[0])
-    #     if temp_app_master:
-    #         TempAppCategoryMapings.objects.create(appmaster_id = temp_app_master.id, app_category_id = app_category_id)
-    #     return Response(request.data)
+
 
 
 
@@ -64,12 +58,10 @@ class BusinessLogoUploadAndStepOneView(RetrieveUpdateAPIView):
     serializer_class = BusinessLogoUploadAndStepOneSerializer
 
 
-class CreateTempUsersAndStepTwoView(ListCreateAPIView):
-    # queryset = TempUsers.objects.all()
+class CreateTempUsersAndStepTwoView(RetrieveUpdateAPIView):
+    queryset = TempAppMasters.objects.all()
     serializer_class = TempUsersAndStepTwoSerializer
-    def get_queryset(self):
-        session_id = self.kwargs['session']
-        return TempAppMasters.objects.filter(session_id=session_id)
+
 
 class TempUsersDetailView(ListAPIView):
     queryset = TempUsers.objects.all()

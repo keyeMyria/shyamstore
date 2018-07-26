@@ -9,3 +9,6 @@ venv/*
 
 *.pyc
 *.swp
+*.jpg
+*.jfif
+*.png

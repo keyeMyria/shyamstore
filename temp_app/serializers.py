@@ -32,7 +32,8 @@ class TempAppMastersCreateSerializer(ModelSerializer):
         session_id = validated_data.pop("session_id")
         temp_app = TempAppMasters.objects.create(session_id=session_id)
         if temp_app.id:
-            TempAppCategoryMapings.objects.create(appmaster_id = temp_app.id, app_category_id = validated_data.get("app_category"))
+            TempAppCategoryMapings.objects.create(appmaster_id = temp_app.id,
+                                                  app_category_id = validated_data.get("app_category"))
         return {'id':temp_app.id,'session_id':session_id,'app_category':validated_data.get("app_category")}
 
 
@@ -57,6 +58,7 @@ class TempUsersAndStepTwoSerializer(ModelSerializer):
         instance.lat = validated_data.get('lat',instance.lat)
         instance.long = validated_data.get('long',instance.long)
         instance.business_est_year = validated_data.get('business_est_year',instance.business_est_year)
+        instance.is_active = True
         instance.save()
         return instance
 
@@ -119,14 +121,9 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
             if not get_user_data:
                 from nameparser import HumanName
                 name = HumanName(name)
-
-
                 temp_app_data = TempAppMasters.objects.filter(pk=instance.id)
-
                 for app_data in temp_app_data:
-
-
-                    insert_user = User.objects.create(first_name=str(name.first),last_name = str(name.last),
+                    insert_user = User.objects.create(first_name=str(name.first), last_name = str(name.last),
                                                       username=email_id,
                                                       email=email_id,
                                                       is_staff=False,
@@ -173,12 +170,12 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
 
 
         except Exception as e:
-            from rest_framework.response import Response
-            raise APIException({
-                'msg': 'Please Login',
-                'success': 0
-            })
-            # raise e
+            # from rest_framework.response import Response
+            # raise APIException({
+            #     'msg': 'Please Login',
+            #     'success': 0
+            # })
+            raise e
 
 
 
@@ -219,42 +216,7 @@ class UserRegistrationAndStepLastSerializer(ModelSerializer):
         except Exception as e:
             raise e
 
-    # def insert_users(self, email:str, contact_no:int):
-    #     try:
-    #         get_user_data = UserDetails.objects.filter(user__email=email,contact_no=contact_no)
-    #
-    #         # if get_user_data:
-    #         #     for org_user in get_user_data:
-    #         #         org_user.first_name = str(user.owner_name)
-    #         #         org_user.is_superuser = False
-    #         #         org_user.is_staff = False
-    #         #         org_user.set_password("123456")
-    #         #         org_user.save()
-    #         #         user_id = org_user.id
-    #         #     user_details_data = UserDetails.objects.filter(user_id=user_id)
-    #         #     for details in user_details_data:
-    #         #         details.contact_no = contact_no
-    #         #         details.users_pic = user.owner_pic
-    #         #         details.designation_id = user.owner_designation_id
-    #         #         details.save()
-    #         # else:
-    #         #     insert_user = User.objects.create(first_name=str(user.owner_name),
-    #         #                                       username=email,
-    #         #                                       email=email,
-    #         #                                       is_staff=False,
-    #         #                                       is_superuser=False,
-    #         #                                       is_active=True)
-    #         #     insert_user.set_password("123456")
-    #         #     insert_user.save()
-    #         #     user_id = insert_user.id
-    #         #     UserDetails.objects.create(contact_no=contact_no,
-    #         #                                users_pic=user.owner_pic,
-    #         #                                designation = user.owner_designation,
-    #         #                                user_id=user_id)
-    #         #
-    #         # return user_id, session_id
-    #     except Exception as e:
-    #         raise e
+
 
 
 
