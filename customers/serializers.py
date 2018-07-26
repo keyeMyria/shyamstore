@@ -5,6 +5,7 @@ from django.db.models import Q
 from orders.serializers import OrdersSerializer
 
 
+
 class CustomersRegistrationSerializer(ModelSerializer):
     class Meta:
         model = Customers
@@ -103,4 +104,11 @@ class UseAppCustomerMappingSerializer(ModelSerializer):
                 data_dict['app_master'] =c_ac_mapping.app_master_id
 
         return data_dict
+
+
+class CustomerMappingSerializer(ModelSerializer):
+    customer = CustomersRegistrationSerializer()
+    class Meta:
+        model = CustomerAppMasterMapping
+        fields = ['id','app_master','referred_by','created_at','customer']
 

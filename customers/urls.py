@@ -9,4 +9,5 @@ urlpatterns = [
     path('customer_dashbord/<pk>/', CustomerDashbordReadView.as_view()),
     path('customer_order_details/<pk>/', CustomerOrderDetailsView.as_view()),
     path('add_customer_by_appowner/', AddCustomerByAppOwnerView.as_view()),
+    path('customer_list_by_app_id/<appmaster_id>/', CustomerListByAppIdView.as_view())
 ]
