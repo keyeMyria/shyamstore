@@ -116,8 +116,11 @@ class CategoryMapingsUpdate(UpdateAPIView):
 
 
 class UserRegistrationAndStepLastView(RetrieveUpdateAPIView):
-    queryset = TempUsers.objects.all()
+    queryset = TempAppMasters.objects.all()
     serializer_class = UserRegistrationAndStepLastSerializer
+
+
+
 
 class InsertAppUrlTempAppMasterView(RetrieveUpdateAPIView):
     queryset = TempAppMasters.objects.all()

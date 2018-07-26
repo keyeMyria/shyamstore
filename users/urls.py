@@ -8,6 +8,6 @@ urlpatterns = [
     path('login/', views.CustomObtainAuthToken.as_view()),
     path('edit_step2_owner_details/<pk>/',views.EditStepTowOwnerDetailsView.as_view()),
     path('app_and_user_details/<pk>/', views.UserDetailsAndAppMasterDetailsView.as_view()),
-    path('dropdown_designations/', views.DropdownDesignationReadView.as_view()),
+    # path('dropdown_designations/', views.DropdownDesignationReadView.as_view()),
     # path('edit_step2/<user_id>/', views.EditUserDetailsView.as_view()),
 ]

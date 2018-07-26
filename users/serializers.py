@@ -3,6 +3,7 @@ from rest_framework.serializers import ModelSerializer
 from users.models import *
 from django.contrib.auth.models import *
 from app_masters.serializers import *
+from designations.serializers import DesignationReadSerializer
 
 
 class UserLoginSerializer(ModelSerializer):
@@ -62,11 +63,7 @@ class EditStepTowOwnerDetailsSerializer(ModelSerializer):
                 'users_pic':pic,
                 'app_master_id':app_id}
 
-class DesignationReadSerializer(ModelSerializer):
 
-    class Meta:
-        model = Designations
-        fields=["id","designation_name","status"]
 
 class UserDetailsAndAppDetailsSerializer(ModelSerializer):
     designation = DesignationReadSerializer()

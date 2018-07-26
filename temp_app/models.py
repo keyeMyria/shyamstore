@@ -1,7 +1,7 @@
 from django.db import models
 from app_category.models import *
 from django.conf import settings
-from users.models import Designations
+from designations.models import Designations
 
 
 
@@ -154,7 +154,6 @@ class TempUsers(models.Model):
 class TempAppImgs(models.Model):
     app = models.ForeignKey(TempAppMasters, on_delete=models.CASCADE)
     app_images = models.ImageField(upload_to='app_images', default=None)
-    src = models.CharField(max_length=100, blank=True,null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

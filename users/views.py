@@ -53,8 +53,6 @@ class UserDetailsAndAppMasterDetailsView(RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UsersAppDetailsSerializer
 
-class DropdownDesignationReadView(ListAPIView):
-    queryset = Designations.objects.all()
-    serializer_class = DesignationReadSerializer
+
 
 
