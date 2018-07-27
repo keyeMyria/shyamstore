@@ -1,7 +1,6 @@
 from django.contrib import admin
 from users.models import *
 
-admin.site.register(Designations)
 admin.site.register(Roles)
 admin.site.register(UserDetails)
 

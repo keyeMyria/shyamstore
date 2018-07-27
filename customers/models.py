@@ -2,6 +2,7 @@ from django.db import models
 from states.models import *
 from app_masters.models import *
 from django.contrib.auth.models import *
+# from orders.models import *
 
 class Customers(models.Model):
     customer_name = models.CharField(max_length=255)
@@ -32,6 +33,10 @@ class Customers(models.Model):
         return app_master_list
 
 
+
+
+
+
 class CustomerAddress(models.Model):
     customer = models.ForeignKey(Customers,on_delete=models.CASCADE)
     state = models.ForeignKey(States, on_delete=models.CASCADE)
@@ -54,6 +59,9 @@ class CustomerAppMasterMapping(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+
 
 
 

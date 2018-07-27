@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import *
-from customers.models import Customers
+from customers.models import *
 from app_masters.models import AppMasters
 from app_products.models import AppProducts
 from uom.models import Currency
@@ -25,6 +25,25 @@ class Orders(models.Model):
             data_dict['email'] = customer.email
             data_dict['contact_no'] = customer.contact_no
         return data_dict
+
+    def order_count(self):
+        data_list = []
+        count = 0
+        app_id = 0
+
+        get_order_details = OrderDetails.objects.filter(order_id__in=self.id,order__customer_id=self.customer_id)
+
+
+        for order_details in get_order_details:
+            if order_details.appmaster_id==app_id:
+                count +=1
+            else:
+                app_id=order_details.appmaster_id
+                count = 1
+            data_dict = {'app_master_id': order_details.appmaster.id,'count':count}
+            print('data_dict::', data_dict)
+            data_list.append(data_dict)
+        return data_list
 
 
 class OrderDetails(models.Model):

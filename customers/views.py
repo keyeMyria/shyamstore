@@ -68,3 +68,11 @@ class AddCustomerByAppOwnerView(ListCreateAPIView):
     queryset = Customers.objects.all()
     serializer_class = UseAppCustomerMappingSerializer
 
+
+class CustomerListByAppIdView(ListAPIView):
+    serializer_class = CustomerMappingSerializer
+    def get_queryset(self):
+        appmaster_id =self.kwargs['appmaster_id']
+        queryset = CustomerAppMasterMapping.objects.filter(app_master_id = appmaster_id, is_active = True)
+        return queryset
+

@@ -25,7 +25,7 @@ SECRET_KEY = 'yi123e@eut5z&!9!clu5bu0)#6rmwhpnr1hn(e@ev3bv5co2nr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.24.208','192.168.24.129']
+ALLOWED_HOSTS = ['192.168.24.208','192.168.24.129','*']
 
 
 # Application definition
@@ -50,8 +50,12 @@ INSTALLED_APPS = [
     'orders',
     'uom',
     'app_messenger',
+<<<<<<< HEAD
     'designations',
     'paytm',
+=======
+    'designations'
+>>>>>>> e35027e1c7507616cc8aade2a13f10904002f3c0
 ]
 
 MIDDLEWARE = [

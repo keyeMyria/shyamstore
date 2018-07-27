@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import *
 from app_category.models import *
-
+from designations.models import Designations
 # Create your models here.
 
 class AppCoverPhotos(models.Model):
@@ -44,6 +44,9 @@ class AppMasters(models.Model):
     is_paid = models.BooleanField(default=False)
     app_url = models.CharField(max_length=500, blank=True, null=True)
     visiting_count = models.BigIntegerField(default=0, blank=True, null=True)
+    owner_name = models.CharField(max_length=255, blank=True, null=True)
+    owner_designation = models.ForeignKey(Designations, on_delete=models.CASCADE, blank=True, null=True)
+    owner_pic = models.ImageField(upload_to="owners_pic", default=None, blank=True, null=True)
     def __str__(self):
         return str(self.id)
 

@@ -1,7 +1,7 @@
 from django.db import models
 from app_category.models import *
 from django.conf import settings
-from users.models import Designations
+from designations.models import Designations
 
 
 
@@ -24,6 +24,7 @@ class TempAppMasters(models.Model):
     session_id = models.CharField(max_length=100)
     business_name = models.CharField(max_length=100, default=None, blank=True,null=True)
     business_description = models.TextField(blank=True,null=True)
+    business_est_year = models.IntegerField(blank=True, null=True)
     logo = models.ImageField(upload_to="logos", default=None, blank=True,null=True)
     locality = models.TextField(blank=True,null=True)
     is_physical = models.BooleanField(default=True)
@@ -38,6 +39,9 @@ class TempAppMasters(models.Model):
     modified_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     app_url = models.CharField(max_length=200, blank=True,null=False)
+    owner_name = models.CharField(max_length=255, blank=True, null=True)
+    owner_designation = models.ForeignKey(Designations, on_delete=models.CASCADE, blank=True, null=True)
+    owner_pic = models.ImageField(upload_to="owners_pic", default=None, blank=True, null=True)
     def __str__(self):
         return str(self.id)
     # def app_imgs(self):
@@ -150,7 +154,6 @@ class TempUsers(models.Model):
 class TempAppImgs(models.Model):
     app = models.ForeignKey(TempAppMasters, on_delete=models.CASCADE)
     app_images = models.ImageField(upload_to='app_images', default=None)
-    src = models.CharField(max_length=100, blank=True,null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
