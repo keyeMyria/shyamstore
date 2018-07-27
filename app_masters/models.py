@@ -33,6 +33,11 @@ class AppMasters(models.Model):
     contact_no2 = models.BigIntegerField(blank=True,null=True)
     contact_no3 = models.BigIntegerField(blank=True,null=True)
     is_always_open = models.BooleanField(choices=STATUS_CHOICES, default=1)
+
+    owner_name = models.CharField(max_length=100,blank=True,null=True)
+    owner_designation = models.ForeignKey(Designations, on_delete=models.CASCADE,blank=True, null=True)
+    owner_logo = models.ImageField(upload_to="owener_pic", default=None)
+
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)

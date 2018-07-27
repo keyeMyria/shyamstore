@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'app_payment',
     'orders',
     'uom',
-    'app_messenger'
+    'app_messenger',
+    'designations',
+    'paytm',
 ]
 
 MIDDLEWARE = [
