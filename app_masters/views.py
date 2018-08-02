@@ -41,6 +41,14 @@ class EditStep1OrgAppMasterView(RetrieveUpdateAPIView):
     queryset = AppMasters.objects.all()
     serializer_class = UpdateStep1OrgAppMastersSerializer
 
+class EditStep1OrgAppMasterView(RetrieveUpdateAPIView):
+    queryset = AppMasters.objects.all()
+    serializer_class = UpdateStep1OrgAppMastersSerializer
+
+class EditOwnerInfoAppMasterView(RetrieveUpdateAPIView):
+    queryset = AppMasters.objects.all()
+    serializer_class = UpdateOwnerInfoAppMastersSerializer
+
 class AddAppVisitingCountView(RetrieveUpdateAPIView):
     queryset = AppMasters.objects.all()
     serializer_class =AddAppVisitingCountSerializer
@@ -50,7 +58,7 @@ class MostViewedAppReadView(ListAPIView):
     serializer_class = OrgAppMastersSerializer
 
 class SearchAppReadView(ListAPIView):
-    queryset = AppMasters.objects.filter(is_active=True)
+    #queryset = AppMasters.objects.filter(is_active=True)
     serializer_class = SearchAppMastersSerializer
     filter_backends = (filters.SearchFilter,)
     search_fields = ('locality','business_name')
@@ -60,7 +68,16 @@ class SearchAppReadView(ListAPIView):
         latitude = self.request.query_params.get('latitude', None)
         longitude = self.request.query_params.get('longitude', None)
         if latitude and longitude:
-            print("latitude:{} and longitude:{}".format(latitude,longitude))
+            #print("latitude:{} and longitude:{}".format(latitude,longitude))
+            raw_query = 'SELECT id, ' \
+                        '( 3959 * acos( cos( radians('+latitude+') ) * cos( radians( lat ) ) ' \
+                        '* cos( radians( `long` ) - radians('+longitude+') ) ' \
+                        '+ sin( radians('+latitude+') ) * sin( radians( lat ) ) ) ) ' \
+                        'AS distance FROM app_masters_appmasters HAVING distance < 30'
+            #print('raw_query::',raw_query)
+            queryset = AppMasters.objects.raw(raw_query)
+            #print('queryset::',queryset)
+
         if category:
             if category.find(",") > 0:
                 category_ids = category.split(",")
@@ -97,6 +114,14 @@ class EditAppLogoAndNameView(RetrieveUpdateAPIView):
     queryset = AppMasters.objects.all()
     serializer_class = EditAppLogoAndNameSerializer
 
+class EditAppLogoView(RetrieveUpdateAPIView):
+    queryset = AppMasters.objects.all()
+    serializer_class = EditAppLogoSerializer
+
+class EditOwnerLogoView(RetrieveUpdateAPIView):
+    queryset = AppMasters.objects.all()
+    serializer_class = EditOwnerLogoSerializer
+
 class DeleteAppImageDelView(RetrieveUpdateDestroyAPIView):
     queryset = AppImgages.objects.all()
     serializer_class = AppImgagesSerializer
@@ -119,5 +144,10 @@ class DeleteAppImageDelView(RetrieveUpdateDestroyAPIView):
             responce_list.append(responce_dict)
 
         return Response(responce_list)
+
+class DeleteCreateBusinessLogoView(ListCreateAPIView):
+    queryset = AppImgages.objects.all()
+    serializer_class = AppImgagesSerializerBase64
+
 
 

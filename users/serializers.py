@@ -101,5 +101,25 @@ class UserAndUserDetailsSerializer(ModelSerializer):
         model = User
         fields = ["id", "first_name", "last_name", "email", "user_details"]
 
+class UserSomeFiledsSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields= ["id", "first_name", "last_name", "email"]
+class UserListByFranchiseIDSerializer(ModelSerializer):
+    designation = DesignationReadSerializer()
+    user = UserSomeFiledsSerializer()
+    class Meta:
+        model = UserDetails
+        fields = ['franchise_id','id','users_pic','contact_no','address','designation','user']
 
+class UserActiveSerializer(ModelSerializer):
+    class Meta:
+        model = UserDetails
+        fields= ["id","is_active"]
+
+    def update(self, instance, validated_data):
+
+        instance.is_active = validated_data.get("is_active", instance.is_active)
+        instance.save()
+        return instance
 

@@ -6,6 +6,7 @@ from users.serializers import *
 from app_category.serializers import *
 import datetime
 from app_products.serializers import *
+from drf_extra_fields.fields import Base64ImageField
 
 
 class CoverImgUploadSerializer(ModelSerializer):
@@ -87,6 +88,26 @@ class UpdateStep1OrgAppMastersSerializer(ModelSerializer):
         return instance
 
 
+class UpdateOwnerInfoAppMastersSerializer(ModelSerializer):
+    class Meta:
+        model = AppMasters
+        fields =['id','owner_name', 'owner_designation','owner_pic','business_est_year','store_address','lat','long']
+
+    def update(self, instance, validated_data):
+        #print('validated_data::',validated_data)
+        app_id = instance.id
+        app_master_exi_data = AppMasters.objects.filter(pk=app_id)
+        if app_master_exi_data:
+            instance.owner_name = validated_data.get('owner_name', instance.business_name)
+            instance.owner_designation = validated_data.get('owner_designation', instance.business_name)
+            instance.owner_pic = validated_data.get('owner_pic', instance.owner_pic)
+            instance.business_est_year=validated_data.get('business_est_year',instance.business_est_year)
+            instance.store_address = validated_data.get('store_address', instance.store_address)
+            instance.lat = validated_data.get('lat', instance.lat)
+            instance.long = validated_data.get('long', instance.long)
+            instance.save()
+        return instance
+
 class AddAppVisitingCountSerializer(ModelSerializer):
     class Meta:
         model = AppMasters
@@ -117,7 +138,7 @@ class AppAllDetailsSerializer(ModelSerializer):
     # app_images = AddAppMasterImagesSerializer(many=True)
     class Meta:
         model = AppMasters
-        fields =['id','business_name','business_description','business_est_year','logo','category','app_url','user','app_product_categories', 'app_imgs']
+        fields =['id','business_name','business_description','business_est_year','logo','category','app_url','user','app_product_categories', 'app_imgs','owner_name','owner_designation','owner_pic','store_address','lat','long','designation_details']
 
 
 class EditBusinessUrlSerializer(ModelSerializer):
@@ -154,3 +175,102 @@ class EditAppLogoAndNameSerializer(ModelSerializer):
         except Exception as e:
             raise e
         return instance
+
+class EditAppLogoSerializer(ModelSerializer):
+    logo = Base64ImageField()
+    class Meta:
+        model = AppMasters
+        fields =['id','logo']
+    def update(self, instance, validated_data):
+        import os
+        import datetime
+        try:
+            existing_logo ='./media/' +str(instance.logo)
+            instance.logo = validated_data.get('logo',instance.logo)
+            #instance.business_name = validated_data.get('business_name', instance.business_name)
+            #instance.business_description = validated_data.get('business_description',instance.business_description)
+            instance.modified_at = datetime.datetime.now()
+            instance.save()
+            # print(os.path.isfile(existing_logo))
+            if validated_data.get('logo') and os.path.isfile(existing_logo):
+                os.remove(existing_logo)
+        except Exception as e:
+            raise e
+        return instance
+
+class EditOwnerLogoSerializer(ModelSerializer):
+    owner_pic = Base64ImageField()
+    class Meta:
+        model = AppMasters
+        fields =['id','owner_pic']
+
+    def update(self, instance, validated_data):
+        import os
+        import datetime
+        try:
+            #print('validated_data::',validated_data)
+            existing_logo ='./media/' +str(instance.owner_pic)
+            instance.owner_pic = validated_data.get('owner_pic',instance.owner_pic)
+            instance.save()
+            if validated_data.get('owner_pic') and os.path.isfile(existing_logo):
+                os.remove(existing_logo)
+        except Exception as e:
+            raise e
+        return instance
+
+class EditOwnerLogoSerializer(ModelSerializer):
+    owner_pic = Base64ImageField()
+
+    class Meta:
+        model = AppMasters
+        fields = ['id', 'owner_pic']
+
+    def update(self, instance, validated_data):
+        import os
+        import datetime
+        try:
+            # print('validated_data::',validated_data)
+            existing_logo = './media/' + str(instance.owner_pic)
+            instance.owner_pic = validated_data.get('owner_pic', instance.owner_pic)
+            instance.save()
+            if validated_data.get('owner_pic') and os.path.isfile(existing_logo):
+                os.remove(existing_logo)
+        except Exception as e:
+            raise e
+        return instance
+
+
+class AppImgagesSerializerBase64(ModelSerializer):
+    app_images = Base64ImageField()
+    app_image_id = serializers.IntegerField(required=False)
+    class Meta:
+        model = AppImgages
+        fields = ['id', 'appmaster', 'app_images','app_image_id']
+
+    def create(self,validated_data):
+        import os
+        import datetime
+        try:
+            #print('self',self.instance.id)
+            #print('validated_data',validated_data)
+            get_app_image_id = validated_data.pop('app_image_id')
+            if get_app_image_id:
+                existing_images =''
+                img_data = AppImgages.objects.filter(appmaster_id=validated_data.get('appmaster'), pk=get_app_image_id)
+                #print('img_data::',img_data)
+                for data in img_data:
+                    existing_images = './media/' + str(data.app_images)
+                img_data.delete()
+                if validated_data.get('app_images') and os.path.isfile(existing_images):
+                     os.remove(existing_images)
+                return AppImgages.objects.create(appmaster=validated_data.get('appmaster'),
+                                                 app_images=validated_data.get('app_images'))
+
+            else:
+                return AppImgages.objects.create(appmaster=validated_data.get('appmaster'),
+                                      app_images=validated_data.get('app_images'))
+
+
+
+        except Exception as e:
+            raise e

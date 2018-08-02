@@ -24,6 +24,8 @@ class OrdersDetailsReadView(ListAPIView):
             queryset = Orders.objects.all()
         return queryset
 
+
+
 class CancelOrderView(RetrieveUpdateAPIView):
     queryset = Orders.objects.all()
     serializer_class = CancelOrderSerializer
@@ -31,3 +33,11 @@ class CancelOrderView(RetrieveUpdateAPIView):
 class CancelOrderByOrderDetailsIdView(RetrieveUpdateAPIView):
     queryset = OrderDetails.objects.all()
     serializer_class = CancelOrderByProductIdSerializer
+
+class OrdersDetailsBYAppIdReadView(ListAPIView):
+    serializer_class = OrdersFullDetailsSerializer
+    def get_queryset(self):
+        appmaster_id = self.kwargs['appmaster_id']
+        if appmaster_id:
+            queryset = Orders.objects.filter(appmaster_id=appmaster_id)
+            return queryset

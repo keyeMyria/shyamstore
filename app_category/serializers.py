@@ -5,7 +5,7 @@ from app_category.models import *
 class CategoriesListSerializer(ModelSerializer):
     class Meta:
         model = AppCategories
-        fields =['id','category_name','category_code','description','created_at','is_deleted','app_count','created_by_id','status']
+        fields =['id','category_name','category_code','description','created_at','is_deleted','app_count','created_by_id','status','icon','cover_image']
 
 class AppCategoriesSerializer(ModelSerializer):
     class Meta:

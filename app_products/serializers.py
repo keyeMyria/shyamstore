@@ -40,6 +40,7 @@ class DeleteAppProductsSerializer(ModelSerializer):
         return instance
 
 class ProductCategorySerializer(ModelSerializer):
+
     class Meta:
         model = AppProductCategories
         fields =['id','category_name','description','app_master']

@@ -25,11 +25,21 @@ class CustomObtainAuthToken(ObtainAuthToken):
         contact_no = [data.contact_no for data in user_details]
 
         if user:
+            user_group = user.groups.all()
+            for item in user_group:
+                user_group = item.name
+            if user_group:
+                user_group_name = user_group
+            else:
+                user_group_name = ""
+            #perm_tuple = [{'id': x.id, 'name': x.name} for x in Permission.objects.filter(user=user)]
+            #print('user_group',type(user_group))
             data_dict = {
                 'token': token.key,
                 'user_id': user.pk,
                 'username':user.username,
                 'email': user.email,
+                'group': user_group_name,
                 'contact_no':contact_no[0] if contact_no else ''
             }
             if user.is_staff:
@@ -53,6 +63,17 @@ class UserDetailsAndAppMasterDetailsView(RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UsersAppDetailsSerializer
 
+class UserListByFranchiseIDView(ListAPIView):
+    serializer_class = UserListByFranchiseIDSerializer
+    def get_queryset(self):
+        franchise_id = self.kwargs['franchise_id']
+        #print('franchise_id::',franchise_id)
+        if franchise_id:
+            queryset = UserDetails.objects.filter(franchise_id=franchise_id)
+            return queryset
 
+class UserActiveView(RetrieveUpdateAPIView):
+    queryset = UserDetails.objects.all()
+    serializer_class = UserActiveSerializer
 
 

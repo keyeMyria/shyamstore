@@ -4,7 +4,7 @@ from rest_framework import routers
 from django.urls import path
 
 urlpatterns = [
-    path('org_product_categories_edit/<appmaster_id>/', AppProductCategoriesEditView.as_view()),
+    path('org_product_categories_edit/<appmaster_id>/', AppProductCategoriesByAppMasterEditView.as_view()),
     path('org_product_edit/<appmaster_id>/', AppProductsEditView.as_view()),
     path('edit_app_products/<pk>/', EditAppProductsView.as_view()),#get product and update product
     path('delete_app_products/<pk>/', DeleteAppProductsView.as_view()),#delete product

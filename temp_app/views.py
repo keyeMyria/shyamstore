@@ -112,6 +112,18 @@ class UserRegistrationAndStepLastView(RetrieveUpdateAPIView):
     serializer_class = UserRegistrationAndStepLastSerializer
 
 
+class UserRegistrationAndStepLastForUserView(RetrieveUpdateAPIView):
+    queryset = TempAppMasters.objects.all()
+    serializer_class = UserRegistrationAndStepLastForUserSerializer
+
+class UserRegistrationAndStepLastForFranchiseView(RetrieveUpdateAPIView):
+    queryset = TempAppMasters.objects.all()
+    serializer_class = UserRegistrationAndStepLastForFranchiseSerializer
+
+
+class UserRegistrationAndStepLastForExistFranchiseView(RetrieveUpdateAPIView):
+    queryset = TempAppMasters.objects.all()
+    serializer_class = UserRegistrationAndStepLastForExistFranchiseSerializer
 
 
 class InsertAppUrlTempAppMasterView(RetrieveUpdateAPIView):
@@ -148,6 +160,7 @@ class SearchTempAppProductByCategoryView(ListAPIView):
         return TempAppProducts.objects.filter(product_category_id=categort_id)
 
 class EditTempAppProductCategoriesView(RetrieveUpdateAPIView):
+
     queryset = TempAppProductCategories.objects.all()
     serializer_class = CreateTempAppProductCategoriesSerializer
 
@@ -163,8 +176,10 @@ class CreateMultiTempAppProductCategoriesView(CreateAPIView):
 
 class EditTempAppProductCategoriesView(UpdateAPIView):
     def update(self, request, *args, **kwargs):
+        print('request.data',request.data)
         appmaster_id = self.kwargs['appmaster_id']
         get_datas = TempAppProductCategories.objects.filter(app_master_id=appmaster_id, is_active = True)
+
         exiest_ids = [ids.id for ids in get_datas]
         upd_ids =[]
         del_ids =[]

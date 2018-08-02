@@ -26,4 +26,8 @@ urlpatterns = [
     path('edit_product_Categories/<appmaster_id>/', views.EditTempAppProductCategoriesView.as_view()),
     path('edit_product/<appmaster_id>/', views.EditTempAppProductsView.as_view()),
 
+
+    path('create_app_step_last_for_user/<pk>/', views.UserRegistrationAndStepLastForUserView.as_view()),
+    path('create_app_step_last_for_franchise/<pk>/', views.UserRegistrationAndStepLastForFranchiseView.as_view()),
+    path('create_app_step_last_for_franchise_exist/<pk>/', views.UserRegistrationAndStepLastForExistFranchiseView.as_view()),
 ]

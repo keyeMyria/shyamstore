@@ -8,6 +8,11 @@ class OrderDetailsSerializer(ModelSerializer):
         model = OrderDetails
         fields = "__all__"
 
+class OrderDetailsDiffSerializer(ModelSerializer):
+    class Meta:
+        model = OrderDetails
+        fields = ['id','quantity','total_cost','unit_price','IGST','CGST','GST','packaging_cost',
+                  'total_cost','uom_currency_details','product_details']
 
 
 class OrdersSerializer(ModelSerializer):
@@ -42,15 +47,7 @@ class OrdersSerializer(ModelSerializer):
 
 
 class OrdersFullDetailsSerializer(ModelSerializer):
-    order_details = OrderDetailsSerializer(many=True)
-    # order_details = serializers.SerializerMethodField()
-    # def get_order_details(self, id):
-    #     qs = OrderDetails.objects.filter(is_active=True, order_id=id)
-    #     serializer = OrderDetailsSerializer(instance=qs, many=True)
-    #     print('serializer.data::', serializer.data)
-    #     return serializer.data
-
-    # print('order_details::', order_details)
+    order_details = OrderDetailsDiffSerializer(many=True)
     class Meta:
         model = Orders
         fields = ['id','customer_details','price','is_paid','created_at','order_details']

@@ -4,8 +4,10 @@ from app_products.serializers import *
 from rest_framework.views import *
 from rest_framework.generics import*
 
-class AppProductCategoriesEditView(UpdateAPIView):
+class AppProductCategoriesByAppMasterEditView(RetrieveUpdateAPIView):
+
     def update(self, request, *args, **kwargs):
+        print('rupam')
         appmaster_id = self.kwargs['appmaster_id']
         get_datas = AppProductCategories.objects.filter(app_master_id=appmaster_id, is_active = True)
         exiest_ids = [ids.id for ids in get_datas]
@@ -24,6 +26,7 @@ class AppProductCategoriesEditView(UpdateAPIView):
             for del_data in pro_cat_data:
                 del_data.is_active = False
                 del_data.save()
+
 
         for data in request.data["product_categories"]:
             if data["id"] in upd_ids:
@@ -52,9 +55,13 @@ class AppProductCategoriesEditView(UpdateAPIView):
 
             data_dict = {"id":data.id,"category_name":data.category_name, "description":data.description,"products":product_list}
             data_list.append(data_dict)
-
+            print('data_list::',data_list)
 
         return Response({"product_categories": data_list})
+
+    # def get(self, request, *args, **kwargs):
+    #     appmaster_id = self.kwargs['appmaster_id']
+    #     query = AppProductCategories.objects.filter(app_master_id=appmaster_id, is_active=True)
 
 class AppProductsEditView(UpdateAPIView):
     def update(self, request, *args, **kwargs):

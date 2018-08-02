@@ -52,6 +52,9 @@ INSTALLED_APPS = [
     'app_messenger',
     'designations',
     'paytm',
+    'sms',
+    'channels',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -84,17 +87,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'shyamstore.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+ASGI_APPLICATION = 'shyamstore.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('localhost', 6379)],
+        },
+    },
+}
 
 DATABASES = {
     'default': {
